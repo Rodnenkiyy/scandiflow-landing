@@ -180,7 +180,43 @@
         <h2 class="h2" data-i18n="contact_h">Porozmawiajmy</h2>
         <p class="muted" data-i18n="contact_p">Wyślij zapytanie. Odpowiemy z propozycją i terminem.</p>
         <div class="contact-wrap" style="margin-top:14px">
-          <form id="contactForm" novalidate>
+          <form action="https://formspree.io/f/myzdqdrg" method="POST" id="contactForm" novalidate>
+  <div>
+    <label for="name" data-i18n="f_name_l">Imię i nazwisko</label>
+    <input id="name" name="name" type="text" required data-i18n-placeholder="f_name_p" placeholder="Jan Kowalski" />
+  </div>
+  <div>
+    <label for="company" data-i18n="f_company_l">Firma</label>
+    <input id="company" name="company" type="text" data-i18n-placeholder="f_company_p" placeholder="Nazwa firmy" />
+  </div>
+  <div>
+    <label for="email" data-i18n="f_email_l">E-mail</label>
+    <input id="email" name="email" type="email" required data-i18n-placeholder="f_email_p" placeholder="name@company.com" />
+  </div>
+  <div>
+    <label for="phone" data-i18n="f_phone_l">Telefon (opcjonalnie)</label>
+    <input id="phone" name="phone" type="tel" data-i18n-placeholder="f_phone_p" placeholder="+372" />
+  </div>
+
+  <!-- Сообщение -->
+  <div class="full">
+    <label for="message" data-i18n="f_msg_l">Krótko o zapytaniu</label>
+    <textarea id="message" name="message" data-i18n-placeholder="f_msg_p" placeholder="Wolumen, terminy, budżet — co istotne" required></textarea>
+  </div>
+
+  <!-- Служебные поля -->
+  <input type="hidden" id="fs_subject" name="_subject" value="SCANDIFLOW: new inquiry">
+  <input type="hidden" id="fs_lang"    name="_language" value="en">
+  <input type="hidden" name="_redirect" value="https://ТВОЙ-ДОМЕН/thank-you.html">
+  <!-- Антиспам-ханипот -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="full">
+    <button class="btn" type="submit" data-i18n="f_send">Wyślij</button>
+    <div class="notice" id="formNotice"></div>
+  </div>
+</form>
+
             <div>
               <label for="name" data-i18n="f_name_l">Imię i nazwisko</label>
               <input id="name" name="name" type="text" required data-i18n-placeholder="f_name_p" placeholder="Jan Kowalski" />
@@ -360,6 +396,20 @@
       document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       localStorage.setItem('lang', lang);
       document.title = (lang==='ru'? 'SCANDIFLOW — опт без усложнений' : lang==='pl'? 'SCANDIFLOW — hurt bez komplikacji' : 'SCANDIFLOW — wholesale, uncomplicated');
+      // в applyLang(lang) после смены заголовков:
+const subj = {
+  pl: 'SCANDIFLOW: nowe zapytanie',
+  ru: 'SCANDIFLOW: новая заявка',
+  en: 'SCANDIFLOW: new inquiry'
+}[lang] || 'SCANDIFLOW: inquiry';
+
+const langCode = (lang==='pl' ? 'pl' : lang==='ru' ? 'ru' : 'en');
+
+const subjInput = document.getElementById('fs_subject');
+const langInput = document.getElementById('fs_lang');
+if (subjInput) subjInput.value = subj;
+if (langInput) langInput.value = langCode;
+   
     }
 
     document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
@@ -367,18 +417,18 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // mailto form
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', e=>{
-      e.preventDefault();
-      if(!form.reportValidity()) return;
-      const f = new FormData(form);
-      const name=f.get('name')||''; const company=f.get('company')||''; const email=f.get('email')||''; const phone=f.get('phone')||''; const message=f.get('message')||'';
-      const subject = encodeURIComponent(`SCANDIFLOW inquiry — ${name}${company? ' • '+company: ''}`);
-      const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
-      const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
-      try{ window.location.href = mailto; document.getElementById('formNotice').textContent = 'Email composer opened.'; form.reset(); }
-      catch(_){ document.getElementById('formNotice').textContent = 'Cannot open mail client. Write to: ' + EMAIL_TO; }
-    });
+    //const form = document.getElementById('contactForm');
+    //form.addEventListener('submit', e=>{
+    //  e.preventDefault();
+    //  if(!form.reportValidity()) return;
+    //  const f = new FormData(form);
+    //  const name=f.get('name')||''; const company=f.get('company')||''; const email=f.get('email')||''; const phone=f.get('phone')||''; const message=f.get('message')||'';
+    //  const subject = encodeURIComponent(`SCANDIFLOW inquiry — ${name}${company? ' • '+company: ''}`);
+    //  const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
+    //  const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    //  try{ window.location.href = mailto; document.getElementById('formNotice').textContent = 'Email composer opened.'; form.reset(); }
+    //  catch(_){ document.getElementById('formNotice').textContent = 'Cannot open mail client. Write to: ' + EMAIL_TO; }
+    //});
   </script>
 
   <!-- Structured data -->
