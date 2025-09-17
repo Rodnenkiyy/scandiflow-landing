@@ -396,19 +396,7 @@
       document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       localStorage.setItem('lang', lang);
       document.title = (lang==='ru'? 'SCANDIFLOW — опт без усложнений' : lang==='pl'? 'SCANDIFLOW — hurt bez komplikacji' : 'SCANDIFLOW — wholesale, uncomplicated');
-      // в applyLang(lang) после смены заголовков:
-const subj = {
-  pl: 'SCANDIFLOW: nowe zapytanie',
-  ru: 'SCANDIFLOW: новая заявка',
-  en: 'SCANDIFLOW: new inquiry'
-}[lang] || 'SCANDIFLOW: inquiry';
-
-const langCode = (lang==='pl' ? 'pl' : lang==='ru' ? 'ru' : 'en');
-
-const subjInput = document.getElementById('fs_subject');
-const langInput = document.getElementById('fs_lang');
-if (subjInput) subjInput.value = subj;
-if (langInput) langInput.value = langCode;
+      
    
     }
 
