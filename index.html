@@ -416,19 +416,7 @@ if (langInput) langInput.value = langCode;
     applyLang(DEFAULT_LANG);
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // mailto form
-    //const form = document.getElementById('contactForm');
-    //form.addEventListener('submit', e=>{
-    //  e.preventDefault();
-    //  if(!form.reportValidity()) return;
-    //  const f = new FormData(form);
-    //  const name=f.get('name')||''; const company=f.get('company')||''; const email=f.get('email')||''; const phone=f.get('phone')||''; const message=f.get('message')||'';
-    //  const subject = encodeURIComponent(`SCANDIFLOW inquiry — ${name}${company? ' • '+company: ''}`);
-    //  const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
-    //  const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
-    //  try{ window.location.href = mailto; document.getElementById('formNotice').textContent = 'Email composer opened.'; form.reset(); }
-    //  catch(_){ document.getElementById('formNotice').textContent = 'Cannot open mail client. Write to: ' + EMAIL_TO; }
-    //});
+    
   </script>
 
   <!-- Structured data -->
