@@ -91,11 +91,11 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="SCANDIFLOW">
-        <img src="scandiflow-logo.png" alt="SCANDIFLOW" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'"/>
+        <img src="scandiflow-logo.jpeg" alt="SCANDIFLOW" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'"/>
         <span class="fallback" style="display:none">SCANDIFLOW</span>
       </a>
       <nav class="menu" aria-label="Main">
-        <a href="#what" data-i18n="nav_what">Co robimy</a>
+        $1<a href="#sectors" data-i18n="nav_sectors">Kierunki</a>
         <a href="#why" data-i18n="nav_why">Dlaczego my</a>
         <a href="#flow" data-i18n="nav_flow">Przebieg</a>
         <a href="#contact" data-i18n="nav_contact">Kontakt</a>
@@ -145,6 +145,31 @@
       </div>
     </section>
 
+    <section id="sectors" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="sectors_h">Чем мы занимаемся</h2>
+        <div class="grid2" style="margin-top:12px">
+          <div class="card">
+            <h3 data-i18n="sectors_intro">Наши направления:</h3>
+            <ul class="muted" style="margin:8px 0 0 18px">
+              <li data-i18n="sector_1">Строительные материалы</li>
+              <li data-i18n="sector_2">Кровля</li>
+              <li data-i18n="sector_3">Сантехника</li>
+              <li data-i18n="sector_4">Строительная и дорожная техника</li>
+              <li data-i18n="sector_5">Бытовая химия</li>
+              <li data-i18n="sector_6">Продукты питания</li>
+              <li data-i18n="sector_7">И другие товары оптом в Балтийском регионе и ЕС.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 data-i18n="sectors_extra_h">Логистика</h3>
+            <p class="muted" data-i18n="sectors_extra1">Финансовая и транспортная логистика по всему миру.</p>
+            <p class="muted" data-i18n="sectors_extra2">Организация логистики под ключ за пределами ЕС.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="why" class="paper">
       <div class="container">
         <h2 class="h2" data-i18n="why_h">Dlaczego SCANDIFLOW</h2>
@@ -180,43 +205,7 @@
         <h2 class="h2" data-i18n="contact_h">Porozmawiajmy</h2>
         <p class="muted" data-i18n="contact_p">Wyślij zapytanie. Odpowiemy z propozycją i terminem.</p>
         <div class="contact-wrap" style="margin-top:14px">
-          <form action="https://formspree.io/f/myzdqdrg" method="POST" id="contactForm" novalidate>
-  <div>
-    <label for="name" data-i18n="f_name_l">Imię i nazwisko</label>
-    <input id="name" name="name" type="text" required data-i18n-placeholder="f_name_p" placeholder="Jan Kowalski" />
-  </div>
-  <div>
-    <label for="company" data-i18n="f_company_l">Firma</label>
-    <input id="company" name="company" type="text" data-i18n-placeholder="f_company_p" placeholder="Nazwa firmy" />
-  </div>
-  <div>
-    <label for="email" data-i18n="f_email_l">E-mail</label>
-    <input id="email" name="email" type="email" required data-i18n-placeholder="f_email_p" placeholder="name@company.com" />
-  </div>
-  <div>
-    <label for="phone" data-i18n="f_phone_l">Telefon (opcjonalnie)</label>
-    <input id="phone" name="phone" type="tel" data-i18n-placeholder="f_phone_p" placeholder="+372" />
-  </div>
-
-  <!-- Сообщение -->
-  <div class="full">
-    <label for="message" data-i18n="f_msg_l">Krótko o zapytaniu</label>
-    <textarea id="message" name="message" data-i18n-placeholder="f_msg_p" placeholder="Wolumen, terminy, budżet — co istotne" required></textarea>
-  </div>
-
-  <!-- Служебные поля -->
-  <input type="hidden" id="fs_subject" name="_subject" value="SCANDIFLOW: new inquiry">
-  <input type="hidden" id="fs_lang"    name="_language" value="en">
-  <input type="hidden" name="_redirect" value="https://ТВОЙ-ДОМЕН/thank-you.html">
-  <!-- Антиспам-ханипот -->
-  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-  <div class="full">
-    <button class="btn" type="submit" data-i18n="f_send">Wyślij</button>
-    <div class="notice" id="formNotice"></div>
-  </div>
-</form>
-
+          <form id="contactForm" novalidate>
             <div>
               <label for="name" data-i18n="f_name_l">Imię i nazwisko</label>
               <input id="name" name="name" type="text" required data-i18n-placeholder="f_name_p" placeholder="Jan Kowalski" />
@@ -299,7 +288,7 @@
         what_h:'Czym się zajmujemy', what_p:'Nie sprzedajemy katalogu. Działamy na podstawie konkretnego zapytania biznesowego i dostarczamy rozwiązanie end‑to‑end.',
         w1_h:'Sourcing i negocjacje', w1_p:'Wyszukujemy odpowiednich producentów i ustalamy warunki w oparciu o cele kosztowe i terminy.',
         w2_h:'Kontrola i konsolidacja', w2_p:'Nadzór nad jakością, zdjęcia/wideo, łączenie dostaw i przygotowanie dokumentacji.',
-        w3_h:'Logistyka i odprawy', w3_p:'Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.',
+        w3_h:'Logistyka finansowa i transportowa oraz odprawy', w3_p:'Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.',
         why_h:'Dlaczego SCANDIFLOW', why_p:'Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.',
         b1_h:'Pełna transparentność', b1_p:'Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.',
         b2_h:'Krótka ścieżka decyzyjna', b2_p:'Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.',
@@ -318,6 +307,8 @@
         f_name_l:'Imię i nazwisko', f_name_p:'Jan Kowalski', f_company_l:'Firma', f_company_p:'Nazwa firmy', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Telefon (opcjonalnie)', f_phone_p:'+372', f_msg_l:'Krótko o zapytaniu', f_msg_p:'Wolumen, terminy, budżet — co istotne', f_send:'Wyślij',
         contact_card_h:'Co dostaniesz w odpowiedzi', contact_card_1:'Krótki follow‑up i ewentualne doprecyzowania.', contact_card_2:'Wstępny harmonogram i budżet.', contact_card_3:'Lista dokumentów i formalności.', contact_card_note:'* Formularz otwiera e‑mail w Twoim kliencie pocztowym. Możesz też napisać bezpośrednio.',
         company_h:'Dane rejestrowe', company_legal_h:'Informacje prawne', company_legal_p:'Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.', reg_no:'Registration №'
+      ,
+        nav_sectors:'Kierunki', sectors_h:'Nasze kierunki', sectors_intro:'Nasze kierunki:', sector_1:'Materiały budowlane', sector_2:'Pokrycia dachowe', sector_3:'Armatura sanitarna', sector_4:'Sprzęt budowlany i drogowy', sector_5:'Chemia gospodarcza', sector_6:'Produkty spożywcze', sector_7:'Oraz inne towary hurtowe w regionie bałtyckim i w UE.', sectors_extra_h:'Logistyka', sectors_extra1:'Logistyka finansowa i transportowa na całym świecie.', sectors_extra2:'Organizacja logistyki pod klucz poza UE.'
       },
       ru: {
         nav_what:'Что мы делаем', nav_why:'Почему мы', nav_flow:'Как это работает', nav_contact:'Контакты', nav_company:'Реквизиты',
@@ -330,7 +321,7 @@
         what_h:'Чем мы занимаемся', what_p:'Мы не продаём «каталог». Работаем от вашего брифа и закрываем проект от начала до конца.',
         w1_h:'Сорсинг и переговоры', w1_p:'Находим производителей и согласуем условия под бюджет и сроки.',
         w2_h:'QC и консолидация', w2_p:'Контроль качества, фото/видео‑отчёты, объединение поставок, документы.',
-        w3_h:'Логистика и таможня', w3_p:'Авто/авиа/море, EORI, трекинг до приёмки.',
+        w3_h:'Финансовая и транспортная логистика и таможня', w3_p:'Авто/авиа/море, EORI, трекинг до приёмки.',
         why_h:'Почему SCANDIFLOW', why_p:'Процесс заточен под закупки и операционку — коротко и по делу.',
         b1_h:'Прозрачность', b1_p:'До старта — условия, риски, вехи и зоны ответственности.',
         b2_h:'Короткая коммуникация', b2_p:'Один менеджер проекта, быстрые апдейты, минимум бюрократии.',
@@ -349,6 +340,8 @@
         f_name_l:'Имя и фамилия', f_name_p:'Андрей', f_company_l:'Компания', f_company_p:'Название компании', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Телефон (опционально)', f_phone_p:'+372', f_msg_l:'Кратко о запросе', f_msg_p:'Объёмы, сроки, бюджет — всё важное', f_send:'Отправить',
         contact_card_h:'Что вы получите', contact_card_1:'Короткий follow‑up и уточнения.', contact_card_2:'Черновой график и бюджет.', contact_card_3:'Список документов и формальностей.', contact_card_note:'* Форма откроет письмо в вашем почтовом клиенте. Можно написать и напрямую.',
         company_h:'Реквизиты компании', company_legal_h:'Правовая информация', company_legal_p:'Выписки и сертификаты предоставляем по запросу в процессе сотрудничества.', reg_no:'Регистрационный №'
+      ,
+        nav_sectors:'Направления', sectors_h:'Чем мы занимаемся', sectors_intro:'Наши направления:', sector_1:'Строительные материалы', sector_2:'Кровля', sector_3:'Сантехника', sector_4:'Строительная и дорожная техника', sector_5:'Бытовая химия', sector_6:'Продукты питания', sector_7:'И другие товары оптом в Балтийском регионе и ЕС.', sectors_extra_h:'Логистика', sectors_extra1:'Финансовая и транспортная логистика по всему миру.', sectors_extra2:'Организация логистики под ключ за пределами ЕС.'
       },
       en: {
         nav_what:'What we do', nav_why:'Why us', nav_flow:'Workflow', nav_contact:'Contact', nav_company:'Company',
@@ -361,7 +354,7 @@
         what_h:'What we do', what_p:'We don’t push a catalog. We execute a clear brief end‑to‑end.',
         w1_h:'Sourcing & negotiation', w1_p:'We identify manufacturers and negotiate conditions aligned with budget and timing.',
         w2_h:'QC & consolidation', w2_p:'Quality supervision, photo/video reports, order merge and paperwork.',
-        w3_h:'Logistics & clearance', w3_p:'Road/air/sea, EORI and tracking to acceptance.',
+        w3_h:'Financial & transport logistics & customs', w3_p:'Road/air/sea, EORI and tracking to acceptance.',
         why_h:'Why SCANDIFLOW', why_p:'Built for procurement and operations — concise, predictable, and practical.',
         b1_h:'Full transparency', b1_p:'Before kickoff: terms, risks, milestones and responsibilities.',
         b2_h:'Short decision path', b2_p:'Single project owner, fast updates, minimal bureaucracy.',
@@ -379,7 +372,8 @@
         contact_h:'Let’s talk', contact_p:'Send your request — we will reply with a proposal and timeline.',
         f_name_l:'Full name', f_name_p:'John Doe', f_company_l:'Company', f_company_p:'Company name', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Phone (optional)', f_phone_p:'+372', f_msg_l:'Your request in brief', f_msg_p:'Volumes, timing, budget — key points', f_send:'Send',
         contact_card_h:'What you will get', contact_card_1:'A short follow‑up and clarifications if needed.', contact_card_2:'Draft schedule and budget.', contact_card_3:'List of documents and formalities.', contact_card_note:'* The form opens an e‑mail in your mail client. You can also write directly.',
-        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №'
+        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №',
+        nav_sectors:'Sectors', sectors_h:'Focus areas', sectors_intro:'Our focus areas:', sector_1:'Building materials', sector_2:'Roofing', sector_3:'Plumbing & sanitary ware', sector_4:'Construction & road equipment', sector_5:'Household chemicals', sector_6:'Food products', sector_7:'And other wholesale goods across the Baltic region and the EU.', sectors_extra_h:'Logistics', sectors_extra1:'Financial and transport logistics worldwide.', sectors_extra2:'Turn‑key logistics outside the EU.'
       }
     };
 
@@ -396,15 +390,25 @@
       document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       localStorage.setItem('lang', lang);
       document.title = (lang==='ru'? 'SCANDIFLOW — опт без усложнений' : lang==='pl'? 'SCANDIFLOW — hurt bez komplikacji' : 'SCANDIFLOW — wholesale, uncomplicated');
-      
-   
     }
 
     document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
     applyLang(DEFAULT_LANG);
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    
+    // mailto form
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      const f = new FormData(form);
+      const name=f.get('name')||''; const company=f.get('company')||''; const email=f.get('email')||''; const phone=f.get('phone')||''; const message=f.get('message')||'';
+      const subject = encodeURIComponent(`SCANDIFLOW inquiry — ${name}${company? ' • '+company: ''}`);
+      const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
+      const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      try{ window.location.href = mailto; document.getElementById('formNotice').textContent = 'Email composer opened.'; form.reset(); }
+      catch(_){ document.getElementById('formNotice').textContent = 'Cannot open mail client. Write to: ' + EMAIL_TO; }
+    });
   </script>
 
   <!-- Structured data -->
