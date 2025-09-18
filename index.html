@@ -111,7 +111,6 @@
           <button type="button" data-lang="pl" class="active">PL</button>
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="de">DE</button>
-          <button type="button" data-lang="fr">FR</button>
           <button type="button" data-lang="es">ES</button>
         </span>
       </nav>
@@ -426,7 +425,6 @@
         pl: 'SCANDIFLOW: nowe zapytanie',
         en: 'SCANDIFLOW: new inquiry',
         de: 'SCANDIFLOW: neue Anfrage',
-        fr: 'SCANDIFLOW: nouvelle demande',
         es: 'SCANDIFLOW: nueva solicitud'
       }[lang] || 'SCANDIFLOW: inquiry';
       const langCode = lang;
@@ -438,7 +436,6 @@
         pl:'SCANDIFLOW — hurt bez komplikacji',
         en:'SCANDIFLOW — wholesale, uncomplicated',
         de:'SCANDIFLOW — Großhandel, unkompliziert',
-        fr:'SCANDIFLOW — grossiste, sans complexité',
         es:'SCANDIFLOW — mayorista sin complicaciones'
       };
       document.title = titles[lang] || titles.en;
@@ -446,7 +443,7 @@
 
     // Language switch handlers
     document.addEventListener('DOMContentLoaded', ()=>{
-      const allowed=['pl','en','de','fr','es'];
+      const allowed=['pl','en','de','es'];
       let start = localStorage.getItem('lang') || 'pl';
       if(!allowed.includes(start)) start='pl';
       applyLang(start);
@@ -460,7 +457,7 @@
 
     // --- SMOKE TESTS (dev aid; harmless in production) ---
     (function i18nSmokeTest(){
-      const langs=['pl','en','de','fr','es'];
+      const langs=['pl','en','de','es'];
       const keys=['hero_title','what_h','contact_h'];
       let ok = true;
       langs.forEach(l=>{ if(!i18n[l]) ok=false; else keys.forEach(k=>{ if(!i18n[l][k]) ok=false; }); });
