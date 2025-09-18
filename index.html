@@ -445,10 +445,15 @@
     }
 
     // Language switch handlers
-    document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
-    const __allowedLangs = ['pl','en','de','fr','es'];
-    const __initialLang = __allowedLangs.includes(DEFAULT_LANG) ? DEFAULT_LANG : 'pl';
-    applyLang(__initialLang);
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const allowed=['pl','en','de','fr','es'];
+      let start = localStorage.getItem('lang') || 'pl';
+      if(!allowed.includes(start)) start='pl';
+      applyLang(start);
+      document.querySelectorAll('.lang button').forEach(btn=>{
+        btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
+      });
+    });
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
