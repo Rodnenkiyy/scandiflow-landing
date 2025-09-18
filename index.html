@@ -60,6 +60,14 @@
     .card h3{margin:0 0 8px; font-size:18px}
     .icon{width:22px; height:22px; margin-right:8px; vertical-align:text-bottom}
 
+    /* Square cards for sectors */
+    .squareCards{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; align-items:stretch}
+    .card--square{aspect-ratio:1/1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:24px; border-radius:18px; background:linear-gradient(180deg,#ffffff, #fffaf2); border:1px solid #e9e3d8; box-shadow:var(--shadow)}
+    .card--square h3{font-size:20px; margin:0 0 10px}
+    .squareCards ul{list-style:disc; padding-left:20px}
+    .squareCards li{margin:6px 0}
+    @media (max-width: 900px){ .card--square{aspect-ratio:auto} }
+
     /* Steps */
     .steps{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
     .step{border:1px dashed #d7d0c4; background:#fffdfa; border-radius:12px; padding:14px}
@@ -142,8 +150,8 @@
             <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><path d="M2 12h20M12 2l4 4-4 4M12 22l4-4-4-4"/></svg><span data-i18n="w3_h">Logistyka finansowa i transportowa oraz odprawy</span></h3>
             <p class="muted" data-i18n="w3_p">Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.</p>
           </div>
-        <div class="grid2" style="margin-top:22px">
-          <div class="card">
+        <div class="grid2 squareCards" style="margin-top:22px">
+          <div class="card card--square">
             <h3 data-i18n="sectors_intro">Nasze kierunki:</h3>
             <ul class="muted" style="margin:8px 0 0 18px">
               <li data-i18n="sector_1">Materiały budowlane</li>
@@ -155,7 +163,7 @@
               <li data-i18n="sector_7">Oraz inne towary hurtowe w regionie bałtyckim i w UE.</li>
             </ul>
           </div>
-          <div class="card">
+          <div class="card card--square">
             <h3 data-i18n="sectors_extra_h">Logistyka</h3>
             <p class="muted" data-i18n="sectors_extra1">Logistyka finansowa i transportowa na całym świecie.</p>
             <p class="muted" data-i18n="sectors_extra2">Organizacja logistyki pod klucz poza UE.</p>
