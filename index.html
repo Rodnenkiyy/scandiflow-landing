@@ -139,32 +139,32 @@
             <p class="muted" data-i18n="w2_p">Nadzór nad jakością, zdjęcia/wideo, łączenie dostaw i przygotowanie dokumentacji.</p>
           </div>
           <div class="card">
-            <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><path d="M2 12h20M12 2l4 4-4 4M12 22l4-4-4-4"/></svg><span data-i18n="w3_h">Logistyka i odprawy</span></h3>
+            <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><path d="M2 12h20M12 2l4 4-4 4M12 22l4-4-4-4"/></svg><span data-i18n="w3_h">Logistyka finansowa i transportowa oraz odprawy</span></h3>
             <p class="muted" data-i18n="w3_p">Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.</p>
           </div>
         <div class="grid2" style="margin-top:22px">
           <div class="card">
-            <h3 data-i18n="sectors_intro">Наши направления:</h3>
+            <h3 data-i18n="sectors_intro">Nasze kierunki:</h3>
             <ul class="muted" style="margin:8px 0 0 18px">
-              <li data-i18n="sector_1">Строительные материалы</li>
-              <li data-i18n="sector_2">Кровля</li>
-              <li data-i18n="sector_3">Сантехника</li>
-              <li data-i18n="sector_4">Строительная и дорожная техника</li>
-              <li data-i18n="sector_5">Бытовая химия</li>
-              <li data-i18n="sector_6">Продукты питания</li>
-              <li data-i18n="sector_7">И другие товары оптом в Балтийском регионе и ЕС.</li>
+              <li data-i18n="sector_1">Materiały budowlane</li>
+              <li data-i18n="sector_2">Pokrycia dachowe</li>
+              <li data-i18n="sector_3">Armatura sanitarna</li>
+              <li data-i18n="sector_4">Sprzęt budowlany i drogowy</li>
+              <li data-i18n="sector_5">Chemia gospodarcza</li>
+              <li data-i18n="sector_6">Produkty spożywcze</li>
+              <li data-i18n="sector_7">Oraz inne towary hurtowe w regionie bałtyckim i w UE.</li>
             </ul>
           </div>
           <div class="card">
-            <h3 data-i18n="sectors_extra_h">Логистика</h3>
-            <p class="muted" data-i18n="sectors_extra1">Финансовая и транспортная логистика по всему миру.</p>
-            <p class="muted" data-i18n="sectors_extra2">Организация логистики под ключ за пределами ЕС.</p>
+            <h3 data-i18n="sectors_extra_h">Logistyka</h3>
+            <p class="muted" data-i18n="sectors_extra1">Logistyka finansowa i transportowa na całym świecie.</p>
+            <p class="muted" data-i18n="sectors_extra2">Organizacja logistyki pod klucz poza UE.</p>
           </div>
         </div>
       </div>
     </section>
 
-     class="paper">
+    <section id="why" class="paper">
       <div class="container">
         <h2 class="h2" data-i18n="why_h">Dlaczego SCANDIFLOW</h2>
         <p class="muted" data-i18n="why_p">Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.</p>
@@ -235,7 +235,7 @@
               <li data-i18n="contact_card_2">Wstępny harmonogram i budżet.</li>
               <li data-i18n="contact_card_3">Lista dokumentów i formalności.</li>
             </ul>
-            <p class="notice" data-i18n="contact_card_note">* Formularz otwiera e‑mail w Twoim kliencie pocztowym. Możesz też napisać bezpośrednio.</p>
+            <p class="notice" data-i18n="contact_card_note">Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.</p>
           </aside>
         </div>
       </div>
@@ -273,11 +273,25 @@
     const EMAIL_TO = "scandiflow.est@gmail.com";
     const DEFAULT_LANG = localStorage.getItem('lang') || 'pl';
 
+    /* ======================
+       i18n DICTIONARY (5 langs)
+       ====================== */
     const i18n = {
-      'Nie sprzedajemy katalogu. Pracujemy od Twojego briefu i dowozimy projekt end‑to‑end. Nasze kierunki: materiały budowlane, pokrycia dachowe, armatura sanitarna, sprzęt budowlany i drogowy, chemia gospodarcza, produkty spożywcze oraz inne towary hurtowe w regionie bałtyckim i w UE. Logistyka finansowa i transportowa na całym świecie. Organizacja logistyki pod klucz poza UE.',
+      pl: {
+        nav_why:'Dlaczego my', nav_flow:'Przebieg', nav_contact:'Kontakt', nav_company:'Dane',
+        hero_title:'SCANDIFLOW — hurt bez komplikacji.',
+        hero_sub:'Dostarczamy rozwiązania zakupowe dla firm: wyszukujemy dostawców, konsolidujemy zamówienia, nadzorujemy jakość i dowozimy towar do wskazanego miejsca — z kompletem dokumentów.',
+        cta_quote:'Poproś o wycenę', cta_learn:'Zobacz przewagi',
+        kpi_1_h:'Brief‑driven', kpi_1_p:'Oferta skrojona pod cel i wolumen.',
+        kpi_2_h:'Przewidywalne terminy', kpi_2_p:'Realne lead time i komunikacja na bieżąco.',
+        kpi_3_h:'Zgodność i dokumenty', kpi_3_p:'VAT/EORI, certyfikaty i protokoły QC.',
+        what_h:'Czym się zajmujemy',
+        what_p:'Nie sprzedajemy katalogu. Działamy na podstawie konkretnego zapytania biznesowego i dostarczamy rozwiązanie end‑to‑end. Nasze kierunki: materiały budowlane, pokrycia dachowe, armatura sanitarna, sprzęt budowlany i drogowy, chemia gospodarcza, produkty spożywcze oraz inne towary hurtowe w regionie bałtyckim i w UE. Logistyka finansowa i transportowa na całym świecie. Organizacja logistyki pod klucz poza UE.',
         w1_h:'Sourcing i negocjacje', w1_p:'Wyszukujemy odpowiednich producentów i ustalamy warunki w oparciu o cele kosztowe i terminy.',
         w2_h:'Kontrola i konsolidacja', w2_p:'Nadzór nad jakością, zdjęcia/wideo, łączenie dostaw i przygotowanie dokumentacji.',
         w3_h:'Logistyka finansowa i transportowa oraz odprawy', w3_p:'Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.',
+        sectors_intro:'Nasze kierunki:', sector_1:'Materiały budowlane', sector_2:'Pokrycia dachowe', sector_3:'Armatura sanitarna', sector_4:'Sprzęt budowlany i drogowy', sector_5:'Chemia gospodarcza', sector_6:'Produkty spożywcze', sector_7:'Oraz inne towary hurtowe w regionie bałtyckim i w UE.',
+        sectors_extra_h:'Logistyka', sectors_extra1:'Logistyka finansowa i transportowa na całym świecie.', sectors_extra2:'Organizacja logistyki pod klucz poza UE.',
         why_h:'Dlaczego SCANDIFLOW', why_p:'Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.',
         b1_h:'Pełna transparentność', b1_p:'Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.',
         b2_h:'Krótka ścieżka decyzyjna', b2_p:'Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.',
@@ -296,38 +310,22 @@
         f_name_l:'Imię i nazwisko', f_name_p:'Jan Kowalski', f_company_l:'Firma', f_company_p:'Nazwa firmy', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Telefon (opcjonalnie)', f_phone_p:'+372', f_msg_l:'Krótko o zapytaniu', f_msg_p:'Wolumen, terminy, budżet — co istotne', f_send:'Wyślij',
         contact_card_h:'Co dostaniesz w odpowiedzi', contact_card_1:'Krótki follow‑up i ewentualne doprecyzowania.', contact_card_2:'Wstępny harmonogram i budżet.', contact_card_3:'Lista dokumentów i formalności.', contact_card_note:'Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.',
         company_h:'Dane rejestrowe', company_legal_h:'Informacje prawne', company_legal_p:'Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.', reg_no:'Registration №'
-      ,
-        nav_sectors:'Kierunki', sectors_h:'Nasze kierunki', sectors_intro:'Nasze kierunki:', sector_1:'Materiały budowlane', sector_2:'Pokrycia dachowe', sector_3:'Armatura sanitarna', sector_4:'Sprzęt budowlany i drogowy', sector_5:'Chemia gospodarcza', sector_6:'Produkty spożywcze', sector_7:'Oraz inne towary hurtowe w regionie bałtyckim i w UE.', sectors_extra_h:'Logistyka', sectors_extra1:'Logistyka finansowa i transportowa na całym świecie.', sectors_extra2:'Organizacja logistyki pod klucz poza UE.'
       },
-      'Мы не продаём «каталог». Работаем от вашего брифа и закрываем проект от начала до конца. Наши направления: строительные материалы, кровля, сантехника, строительная и дорожная техника, бытовая химия, продукты питания и другие товары оптом в Балтийском регионе и ЕС. Финансовая и транспортная логистика по всему миру. Организация логистики под ключ за пределами ЕС.',
-        w1_h:'Сорсинг и переговоры', w1_p:'Находим производителей и согласуем условия под бюджет и сроки.',
-        w2_h:'QC и консолидация', w2_p:'Контроль качества, фото/видео‑отчёты, объединение поставок, документы.',
-        w3_h:'Финансовая и транспортная логистика и таможня', w3_p:'Авто/авиа/море, EORI, трекинг до приёмки.',
-        why_h:'Почему SCANDIFLOW', why_p:'Процесс заточен под закупки и операционку — коротко и по делу.',
-        b1_h:'Прозрачность', b1_p:'До старта — условия, риски, вехи и зоны ответственности.',
-        b2_h:'Короткая коммуникация', b2_p:'Один менеджер проекта, быстрые апдейты, минимум бюрократии.',
-        b3_h:'Соответствие ЕС', b3_p:'EORI, VAT, происхождение и требования рынка.',
-        b4_h:'Без «жёсткого» ассортимента', b4_p:'Каждый проект под конкретные KPI.',
-        b5_h:'Честные сроки', b5_p:'Планируем по реальным окнам производства и логистики.',
-        b6_h:'Масштабирование', b6_p:'От пилотной партии к регулярным поставкам.',
-        flow_h:'Как это работает', flow_p:'Шесть шагов от брифа до поставки.',
-        s1_h:'Бриф', s1_p:'Задача, KPI, объёмы, сроки, бюджет.',
-        s2_h:'Предложение', s2_p:'Опции и условия в компактном оффере.',
-        s3_h:'Договор', s3_p:'NDA/контракт, оплаты и план.',
-        s4_h:'Производство/QC', s4_p:'Контроль качества и отчёты.',
-        s5_h:'Доставка', s5_p:'Транспорт и трекинг.',
-        s6_h:'Закрытие', s6_p:'Документы и выводы.',
-        contact_h:'Свяжитесь с нами', contact_p:'Отправьте запрос — вернёмся с предложением и сроками.',
-        f_name_l:'Имя и фамилия', f_name_p:'Андрей', f_company_l:'Компания', f_company_p:'Название компании', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Телефон (опционально)', f_phone_p:'+372', f_msg_l:'Кратко о запросе', f_msg_p:'Объёмы, сроки, бюджет — всё важное', f_send:'Отправить',
-        contact_card_h:'Что вы получите', contact_card_1:'Короткий follow‑up и уточнения.', contact_card_2:'Черновой график и бюджет.', contact_card_3:'Список документов и формальностей.', contact_card_note:'Форма отправляет заявку напрямую — без почтового клиента.',
-        company_h:'Реквизиты компании', company_legal_h:'Правовая информация', company_legal_p:'Выписки и сертификаты предоставляем по запросу в процессе сотрудничества.', reg_no:'Регистрационный №'
-      ,
-        nav_sectors:'Направления', sectors_h:'Чем мы занимаемся', sectors_intro:'Наши направления:', sector_1:'Строительные материалы', sector_2:'Кровля', sector_3:'Сантехника', sector_4:'Строительная и дорожная техника', sector_5:'Бытовая химия', sector_6:'Продукты питания', sector_7:'И другие товары оптом в Балтийском регионе и ЕС.', sectors_extra_h:'Логистика', sectors_extra1:'Финансовая и транспортная логистика по всему миру.', sectors_extra2:'Организация логистики под ключ за пределами ЕС.'
-      },
-      'We don’t sell a fixed catalog. We work from your brief and deliver end‑to‑end. Focus areas: building materials, roofing, plumbing & sanitary ware, construction and road equipment, household chemicals, food products and other wholesale goods across the Baltic region and the EU. Financial and transport logistics worldwide. Turn‑key logistics outside the EU.',
+      en: {
+        nav_why:'Why us', nav_flow:'Process', nav_contact:'Contact', nav_company:'Company',
+        hero_title:'SCANDIFLOW — wholesale, uncomplicated.',
+        hero_sub:'We handle procurement for businesses: find suppliers, consolidate orders, supervise quality and deliver with full paperwork.',
+        cta_quote:'Request a quote', cta_learn:'See advantages',
+        kpi_1_h:'Brief‑driven', kpi_1_p:'Offer tailored to goal and volume.',
+        kpi_2_h:'Predictable timelines', kpi_2_p:'Realistic lead times and live updates.',
+        kpi_3_h:'Compliance & documents', kpi_3_p:'VAT/EORI, certificates and QC protocols.',
+        what_h:'What we do',
+        what_p:'We don’t sell a fixed catalog. We work from your brief and deliver end‑to‑end. Focus areas: building materials, roofing, plumbing & sanitary ware, construction and road equipment, household chemicals, food products and other wholesale goods across the Baltic region and the EU. Financial and transport logistics worldwide. Turn‑key logistics outside the EU.',
         w1_h:'Sourcing & negotiation', w1_p:'We identify manufacturers and negotiate conditions aligned with budget and timing.',
         w2_h:'QC & consolidation', w2_p:'Quality supervision, photo/video reports, order merge and paperwork.',
         w3_h:'Financial & transport logistics & customs', w3_p:'Road/air/sea, EORI and tracking to acceptance.',
+        sectors_intro:'Our focus areas:', sector_1:'Building materials', sector_2:'Roofing', sector_3:'Plumbing & sanitary ware', sector_4:'Construction & road equipment', sector_5:'Household chemicals', sector_6:'Food products', sector_7:'And other wholesale goods across the Baltic region and the EU.',
+        sectors_extra_h:'Logistics', sectors_extra1:'Financial and transport logistics worldwide.', sectors_extra2:'Turn‑key logistics outside the EU.',
         why_h:'Why SCANDIFLOW', why_p:'Built for procurement and operations — concise, predictable, and practical.',
         b1_h:'Full transparency', b1_p:'Before kickoff: terms, risks, milestones and responsibilities.',
         b2_h:'Short decision path', b2_p:'Single project owner, fast updates, minimal bureaucracy.',
@@ -345,10 +343,10 @@
         contact_h:'Let’s talk', contact_p:'Send your request — we will reply with a proposal and timeline.',
         f_name_l:'Full name', f_name_p:'John Doe', f_company_l:'Company', f_company_p:'Company name', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Phone (optional)', f_phone_p:'+372', f_msg_l:'Your request in brief', f_msg_p:'Volumes, timing, budget — key points', f_send:'Send',
         contact_card_h:'What you will get', contact_card_1:'A short follow‑up and clarifications if needed.', contact_card_2:'Draft schedule and budget.', contact_card_3:'List of documents and formalities.', contact_card_note:'The form submits directly — no mail client needed.',
-        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №',
-        nav_sectors:'Sectors', sectors_h:'Focus areas', sectors_intro:'Our focus areas:', sector_1:'Building materials', sector_2:'Roofing', sector_3:'Plumbing & sanitary ware', sector_4:'Construction & road equipment', sector_5:'Household chemicals', sector_6:'Food products', sector_7:'And other wholesale goods across the Baltic region and the EU.', sectors_extra_h:'Logistics', sectors_extra1:'Financial and transport logistics worldwide.', sectors_extra2:'Turn‑key logistics outside the EU.',
+        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №'
+      },
       de: {
-        nav_what:'Was wir tun', nav_why:'Warum wir', nav_flow:'Ablauf', nav_contact:'Kontakt', nav_company:'Firmendaten',
+        nav_why:'Warum wir', nav_flow:'Ablauf', nav_contact:'Kontakt', nav_company:'Firmendaten',
         hero_title:'SCANDIFLOW — Großhandel, unkompliziert.',
         hero_sub:'Wir übernehmen den Einkauf für Unternehmen: finden Lieferanten, konsolidieren Bestellungen, überwachen die Qualität und liefern mit vollständiger Dokumentation.',
         cta_quote:'Angebot anfordern', cta_learn:'Vorteile ansehen',
@@ -382,7 +380,7 @@
         company_h:'Firmendaten', company_legal_h:'Rechtliche Hinweise', company_legal_p:'Handelsregisterauszüge und Zertifikate stellen wir auf Anfrage bereit.', reg_no:'Registrierungsnr.'
       },
       fr: {
-        nav_what:'Que faisons‑nous', nav_why:'Pourquoi nous', nav_flow:'Processus', nav_contact:'Contact', nav_company:'Société',
+        nav_why:'Pourquoi nous', nav_flow:'Processus', nav_contact:'Contact', nav_company:'Société',
         hero_title:'SCANDIFLOW — grossiste, sans complexité.',
         hero_sub:'Nous gérons vos achats : sourcing de fournisseurs, consolidation des commandes, contrôle qualité et livraison avec documents complets.',
         cta_quote:'Demander un devis', cta_learn:'Voir les atouts',
@@ -416,7 +414,7 @@
         company_h:'Données légales', company_legal_h:'Informations juridiques', company_legal_p:'Extraits et certificats fournis sur demande pendant la collaboration.', reg_no:'N° d’enregistrement'
       },
       es: {
-        nav_what:'Qué hacemos', nav_why:'Por qué nosotros', nav_flow:'Proceso', nav_contact:'Contacto', nav_company:'Empresa',
+        nav_why:'Por qué nosotros', nav_flow:'Proceso', nav_contact:'Contacto', nav_company:'Empresa',
         hero_title:'SCANDIFLOW — mayorista sin complicaciones.',
         hero_sub:'Gestionamos compras para empresas: buscamos proveedores, consolidamos pedidos, controlamos la calidad y entregamos con toda la documentación.',
         cta_quote:'Solicitar presupuesto', cta_learn:'Ver ventajas',
@@ -449,7 +447,7 @@
         contact_card_h:'Qué recibirás', contact_card_1:'Breve seguimiento y aclaraciones si hace falta.', contact_card_2:'Cronograma y presupuesto preliminares.', contact_card_3:'Lista de documentos y formalidades.', contact_card_note:'El formulario se envía directamente — sin cliente de correo.',
         company_h:'Datos de la empresa', company_legal_h:'Información legal', company_legal_p:'Extractos y certificados bajo solicitud durante la colaboración.', reg_no:'N.º de registro'
       }
-    };;
+    };
 
     function applyLang(lang){
       const dict = i18n[lang] || i18n.pl;
@@ -477,7 +475,7 @@
         fr: 'SCANDIFLOW: nouvelle demande',
         es: 'SCANDIFLOW: nueva solicitud'
       }[lang] || 'SCANDIFLOW: inquiry';
-      const langCode = (lang==='pl'? 'pl' : lang==='ru'? 'ru' : 'en');
+      const langCode = lang;
       const subjInput = document.getElementById('fs_subject');
       const langInput = document.getElementById('fs_lang');
       if (subjInput) subjInput.value = subj;
@@ -492,11 +490,23 @@
       document.title = titles[lang] || titles.en;
     }
 
+    // Language switch handlers
     document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
     const __allowedLangs = ['pl','en','de','fr','es'];
     const __initialLang = __allowedLangs.includes(DEFAULT_LANG) ? DEFAULT_LANG : 'pl';
     applyLang(__initialLang);
+
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- SMOKE TESTS (dev aid; harmless in production) ---
+    (function i18nSmokeTest(){
+      const langs=['pl','en','de','fr','es'];
+      const keys=['hero_title','what_h','contact_h'];
+      let ok = true;
+      langs.forEach(l=>{ if(!i18n[l]) ok=false; else keys.forEach(k=>{ if(!i18n[l][k]) ok=false; }); });
+      if(!ok) console.warn('[i18n] smoke test: missing keys detected');
+    })();
   </script>
 
   <!-- Structured data -->
