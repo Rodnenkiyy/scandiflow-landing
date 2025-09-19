@@ -7,7 +7,92 @@
   <meta name="description" content="SCANDIFLOW — B2B sourcing, konsolidacja i dostawy na zamówienie. Prosty, przewidywalny i zgodny proces dla firm w UE i poza nią." />
   <title>SCANDIFLOW — B2B Wholesale | Hurt | Опт</title>
   <style>
-    /* ... стили без изменений ... */
+    :root{
+      /* Burgundy / Cream palette based on logo */
+      --brand: #7d1616;         /* main burgundy */
+      --brand-700:#5f1111;      /* darker burgundy */
+      --brand-800:#3e0c0c;      /* near header/background */
+      --paper: #f3efe6;         /* cream */
+      --paper-2: #e8e2d6;       /* cream-muted */
+      --ink: #191414;           /* dark text */
+      --ink-soft: #5f5a57;      /* muted text on light */
+      --line: #4a1010;          /* burgundy outline */
+      --shadow: 0 6px 24px rgba(0,0,0,.25);
+    }
+    html,body{height:100%}
+    body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; color:var(--paper); background: linear-gradient(180deg, var(--brand-800), var(--brand-700));}
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1180px,92vw); margin:0 auto}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:40; background:rgba(61,10,10,.8); backdrop-filter: blur(6px); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{height:clamp(34px, 5vw, 56px); filter:contrast(1.05) brightness(1.02)}
+    .brand .fallback{font-weight:900; letter-spacing:2px}
+    .menu{display:flex; align-items:center; gap:18px}
+    .menu a{opacity:.85}
+    .menu a:hover{opacity:1}
+    .lang{display:inline-flex; border:1px solid rgba(255,255,255,.18); border-radius:999px; overflow:hidden}
+    .lang button{background:transparent; color:var(--paper); border:0; padding:6px 10px; cursor:pointer; font-weight:700; letter-spacing:.3px}
+    .lang button.active{background:var(--paper); color:var(--brand-800)}
+
+    /* Hero */
+    .hero{padding:84px 0 64px}
+    .headline{font-size: clamp(32px, 6vw, 60px); line-height:1.08; font-weight:900; margin:0 0 14px}
+    .sub{color:#f6f1e7; opacity:.9; font-size:clamp(16px,2.4vw,20px); max-width:860px; margin-bottom:22px}
+    .cta{display:flex; gap:12px}
+    .btn{appearance:none; border:1px solid var(--paper); background:var(--paper); color:var(--brand-800); font-weight:900; padding:12px 18px; border-radius:12px; cursor:pointer}
+    .btn.ghost{background:transparent; color:var(--paper); border-color:rgba(255,255,255,.25)}
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px}
+    .kpi div{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px 16px}
+    .kpi h4{margin:0; font-size:20px}
+    .kpi p{margin:6px 0 0; opacity:.85}
+
+    /* Light sections on cream paper */
+    section{padding:72px 0}
+    .paper{background:var(--paper); color:var(--ink); border-top:1px solid var(--paper-2); border-bottom:1px solid var(--paper-2)}
+    .h2{font-size: clamp(22px, 3.8vw, 34px); margin:0 0 18px; line-height:1.2}
+    .muted{color:var(--ink-soft)}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .card{background:white; border:1px solid #e9e3d8; border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px; font-size:18px}
+    .icon{width:22px; height:22px; margin-right:8px; vertical-align:text-bottom}
+
+    /* Four equal cards (2x2) */
+    .newFour{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; align-items:stretch}
+    .card--quad{display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding:22px 24px; border-radius:18px; background:#ffffff; border:1px solid #ece6db; box-shadow:0 8px 26px rgba(0,0,0,.10); min-height:280px}
+    .card--quad h3{font-size:18px; margin:0 0 8px}
+    .newFour ul{list-style:disc; padding-left:20px; color:var(--ink-soft)}
+    .newFour li{margin:6px 0}
+    @media (max-width: 900px){ .newFour{grid-template-columns:1fr} .card--quad{min-height:unset} }
+
+    /* Steps */
+    .steps{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
+    .step{border:1px dashed #d7d0c4; background:#fffdfa; border-radius:12px; padding:14px}
+    .step h4{margin:0 0 6px; font-size:15px}
+
+    /* Contact */
+    .contact-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
+    form{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    form .full{grid-column:1/-1}
+    label{font-size:13px; color:var(--ink-soft); margin-bottom:6px; display:block}
+    input, textarea{width:100%; background:#fff; border:1px solid #e1dbcf; color:var(--ink); padding:12px; border-radius:10px; font-size:15px}
+    textarea{min-height:120px; resize:vertical}
+    .notice{font-size:12px; color:var(--ink-soft); margin-top:8px}
+
+    /* Footer */
+    footer{padding:30px 0 40px; background:var(--brand-800); color:var(--paper-2); border-top:1px solid rgba(255,255,255,.1)}
+    .foot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .grid3, .grid2, .steps{grid-template-columns:1fr}
+      .kpi{grid-template-columns:1fr}
+      .contact-wrap{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -23,7 +108,7 @@
         <a href="#contact" data-i18n="nav_contact">Kontakt</a>
         <a href="#company" data-i18n="nav_company">Dane</a>
         <span class="lang" role="group" aria-label="Language switcher">
-          <button type="button" data-lang="pl">PL</button>
+          <button type="button" data-lang="pl" class="active">PL</button>
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="de">DE</button>
           <button type="button" data-lang="es">ES</button>
@@ -32,45 +117,374 @@
     </div>
   </header>
 
-  <!-- ... остальной HTML без изменений ... -->
+  <main id="top">
+    <section class="hero container">
+      <h1 class="headline" data-i18n="hero_title">SCANDIFLOW — hurt bez komplikacji.</h1>
+      <p class="sub" data-i18n="hero_sub">Dostarczamy rozwiązania zakupowe dla firm: wyszukujemy dostawców, konsolidujemy zamówienia, nadzorujemy jakość i dowozimy towar do wskazanego miejsca — z kompletem dokumentów.</p>
+      <div class="cta">
+        <a href="#contact" class="btn" data-i18n="cta_quote">Poproś o wycenę</a>
+        <a href="#why" class="btn ghost" data-i18n="cta_learn">Zobacz przewagi</a>
+      </div>
+      <div class="kpi" aria-hidden="true">
+        <div><h4 data-i18n="kpi_1_h">Brief‑driven</h4><p data-i18n="kpi_1_p">Oferta skrojona pod cel i wolumen.</p></div>
+        <div><h4 data-i18n="kpi_2_h">Przewidywalne terminy</h4><p data-i18n="kpi_2_p">Realne lead time i komunikacja na bieżąco.</p></div>
+        <div><h4 data-i18n="kpi_3_h">Zgodność i dokumenty</h4><p data-i18n="kpi_3_p">VAT/EORI, certyfikaty i protokoły QC.</p></div>
+      </div>
+    </section>
+
+    <section id="what" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="what_h">Czym się zajmujemy</h2>
+        <p class="muted" data-i18n="what_p">Nie sprzedajemy katalogu. Działamy na podstawie konkretnego zapytania biznesowego i dostarczamy rozwiązanie end‑to‑end.</p>
+        <div class="grid3" style="margin-top:16px">
+          <div class="card">
+            <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span data-i18n="w1_h">Sourcing i negocjacje</span></h3>
+            <p class="muted" data-i18n="w1_p">Wyszukujemy odpowiednich producentów i ustalamy warunki w oparciu o cele kosztowe i terminy.</p>
+          </div>
+          <div class="card">
+            <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 13l3 3 7-7"/></svg><span data-i18n="w2_h">Kontrola i konsolidacja</span></h3>
+            <p class="muted" data-i18n="w2_p">Nadzór nad jakością, zdjęcia/wideo, łączenie dostaw i przygotowanie dokumentacji.</p>
+          </div>
+          <div class="card">
+            <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#7d1616" stroke-width="2"><path d="M2 12h20M12 2l4 4-4 4M12 22l4-4-4-4"/></svg><span data-i18n="w3_h">Logistyka finansowa i transportowa oraz odprawy</span></h3>
+            <p class="muted" data-i18n="w3_p">Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.</p>
+          </div>
+        <div class="newFour" style="margin-top:22px">
+          <div class="card card--quad">
+            <h3 data-i18n="sector_a_h">Materials & roofing</h3>
+            <ul>
+              <li data-i18n="sector_1">Building materials</li>
+              <li data-i18n="sector_2">Roofing</li>
+            </ul>
+          </div>
+          <div class="card card--quad">
+            <h3 data-i18n="sector_b_h">Sanitary & machinery</h3>
+            <ul>
+              <li data-i18n="sector_3">Plumbing & sanitary ware</li>
+              <li data-i18n="sector_4">Construction & road equipment</li>
+            </ul>
+          </div>
+          <div class="card card--quad">
+            <h3 data-i18n="sector_c_h">Chemicals & food</h3>
+            <ul>
+              <li data-i18n="sector_5">Household chemicals</li>
+              <li data-i18n="sector_6">Food products</li>
+              <li data-i18n="sector_7">And other wholesale goods across the Baltic region and the EU.</li>
+            </ul>
+          </div>
+          <div class="card card--quad">
+            <h3 data-i18n="sector_d_h">Financial & transport logistics & customs</h3>
+            <p class="muted" data-i18n="sectors_extra1">Financial and transport logistics worldwide.</p>
+            <p class="muted" data-i18n="sectors_extra2">Turn‑key logistics outside the EU.</p>
+          </div>
+        </div>
+          <div class="card card--square">
+            <h3 data-i18n="sectors_extra_h">Logistyka</h3>
+            <p class="muted" data-i18n="sectors_extra1">Logistyka finansowa i transportowa na całym świecie.</p>
+            <p class="muted" data-i18n="sectors_extra2">Organizacja logistyki pod klucz poza UE.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="why_h">Dlaczego SCANDIFLOW</h2>
+        <p class="muted" data-i18n="why_p">Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.</p>
+        <div class="grid3" style="margin-top:16px">
+          <div class="card"><h3 data-i18n="b1_h">Pełna transparentność</h3><p class="muted" data-i18n="b1_p">Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.</p></div>
+          <div class="card"><h3 data-i18n="b2_h">Krótka ścieżka decyzyjna</h3><p class="muted" data-i18n="b2_p">Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.</p></div>
+          <div class="card"><h3 data-i18n="b3_h">Zgodność UE</h3><p class="muted" data-i18n="b3_p">EORI, VAT, dokumenty pochodzenia i zgodność z wymaganiami rynku.</p></div>
+          <div class="card"><h3 data-i18n="b4_h">Bez "sztywnego" asortymentu</h3><p class="muted" data-i18n="b4_p">Każde zamówienie traktujemy jako osobny projekt dopasowany do celu.</p></div>
+          <div class="card"><h3 data-i18n="b5_h">Rzetelne lead time</h3><p class="muted" data-i18n="b5_p">Planowanie oparte o realne okna produkcyjne i logistyczne.</p></div>
+          <div class="card"><h3 data-i18n="b6_h">Skalowanie wolumenów</h3><p class="muted" data-i18n="b6_p">Od pilotażu do stałej współpracy — z zachowaniem jakości i kosztów.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="flow_h">Jak to działa</h2>
+        <p class="muted" data-i18n="flow_p">Sześć kroków od briefu do dostawy. Prosto i bez zaskoczeń.</p>
+        <div class="steps" style="margin-top:14px">
+          <div class="step"><h4 data-i18n="s1_h">Brief</h4><p class="muted" data-i18n="s1_p">Zakres, KPI, wolumeny, terminy, budżet.</p></div>
+          <div class="step"><h4 data-i18n="s2_h">Propozycja</h4><p class="muted" data-i18n="s2_p">Opcje i warunki w zwięzłej ofercie.</p></div>
+          <div class="step"><h4 data-i18n="s3_h">Umowa</h4><p class="muted" data-i18n="s3_p">NDA/kontrakt, płatności i plan.</p></div>
+          <div class="step"><h4 data-i18n="s4_h">Produkcja/QC</h4><p class="muted" data-i18n="s4_p">Kontrola jakości i raporty.</p></div>
+          <div class="step"><h4 data-i18n="s5_h">Wysyłka</h4><p class="muted" data-i18n="s5_p">Transport i śledzenie.</p></div>
+          <div class="step"><h4 data-i18n="s6_h">Rozliczenie</h4><p class="muted" data-i18n="s6_p">Dokumenty i wnioski na przyszłość.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="contact_h">Porozmawiajmy</h2>
+        <p class="muted" data-i18n="contact_p">Wyślij zapytanie. Odpowiemy z propozycją i terminem.</p>
+        <div class="contact-wrap" style="margin-top:14px">
+          <form action="https://formspree.io/f/myzdqdrg" method="POST" id="contactForm" novalidate>
+            <input type="hidden" id="fs_subject" name="_subject" value="SCANDIFLOW: inquiry">
+            <input type="hidden" id="fs_lang" name="_language" value="en">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <div>
+              <label for="name" data-i18n="f_name_l">Imię i nazwisko</label>
+              <input id="name" name="name" type="text" required data-i18n-placeholder="f_name_p" placeholder="Jan Kowalski" />
+            </div>
+            <div>
+              <label for="company" data-i18n="f_company_l">Firma</label>
+              <input id="company" name="company" type="text" data-i18n-placeholder="f_company_p" placeholder="Nazwa firmy" />
+            </div>
+            <div>
+              <label for="email" data-i18n="f_email_l">E‑mail</label>
+              <input id="email" name="email" type="email" required data-i18n-placeholder="f_email_p" placeholder="name@company.com" />
+            </div>
+            <div>
+              <label for="phone" data-i18n="f_phone_l">Telefon (opcjonalnie)</label>
+              <input id="phone" name="phone" type="tel" data-i18n-placeholder="f_phone_p" placeholder="+372" />
+            </div>
+            <div class="full">
+              <label for="message" data-i18n="f_msg_l">Krótko o zapytaniu</label>
+              <textarea id="message" name="message" data-i18n-placeholder="f_msg_p" placeholder="Wolumen, terminy, budżet — co istotne" required></textarea>
+            </div>
+            <div class="full">
+              <button class="btn" type="submit" data-i18n="f_send">Wyślij</button>
+              <div class="notice" id="formNotice"></div>
+            </div>
+          </form>
+          <aside class="card">
+            <h3 data-i18n="contact_card_h">Co dostaniesz w odpowiedzi</h3>
+            <ul style="margin:8px 0 0 18px; color:var(--ink-soft)">
+              <li data-i18n="contact_card_1">Krótki follow‑up i ewentualne doprecyzowania.</li>
+              <li data-i18n="contact_card_2">Wstępny harmonogram i budżet.</li>
+              <li data-i18n="contact_card_3">Lista dokumentów i formalności.</li>
+            </ul>
+            <p class="notice" data-i18n="contact_card_note">Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="paper">
+      <div class="container">
+        <h2 class="h2" data-i18n="company_h">Dane rejestrowe</h2>
+        <div class="grid2" style="margin-top:12px">
+          <div class="card">
+            <h3>SCANDIFLOW OÜ</h3>
+            <p>Narva mnt. 7, Tallinn, Estonia, 10117</p>
+            <p><strong data-i18n="reg_no">Registration №</strong>: 17289884</p>
+            <p><strong>VAT</strong>: EE102890383</p>
+            <p><strong>EORI</strong>: EE17289884</p>
+            <p><strong>E‑mail</strong>: <a href="mailto:scandiflow.est@gmail.com">scandiflow.est@gmail.com</a></p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="company_legal_h">Informacje prawne</h3>
+            <p class="muted" data-i18n="company_legal_p">Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>&copy; <span id="year"></span> SCANDIFLOW OÜ</div>
+      <div>VAT EE102890383 • EORI EE17289884 • Reg. 17289884</div>
+    </div>
+  </footer>
 
   <script>
     const EMAIL_TO = "scandiflow.est@gmail.com";
+    const DEFAULT_LANG = localStorage.getItem('lang') || 'pl';
 
+    /* ======================
+       i18n DICTIONARY (5 langs)
+       ====================== */
     const i18n = {
-      pl: { nav_why:"Dlaczego my", nav_flow:"Przebieg", nav_contact:"Kontakt", nav_company:"Dane" },
-      en: { nav_why:"Why us", nav_flow:"Process", nav_contact:"Contact", nav_company:"Company" },
-      de: { nav_why:"Warum wir", nav_flow:"Ablauf", nav_contact:"Kontakt", nav_company:"Firmendaten" },
-      es: { nav_why:"Por qué nosotros", nav_flow:"Proceso", nav_contact:"Contacto", nav_company:"Empresa" }
+      $1, sector_a_h:'Materiały i pokrycia dachowe', sector_b_h:'Sanitarne i maszyny', sector_c_h:'Chemia i żywność', sector_d_h:'Logistyka finansowa i transportowa oraz odprawy',
+        why_h:'Dlaczego SCANDIFLOW', why_p:'Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.',
+        b1_h:'Pełna transparentność', b1_p:'Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.',
+        b2_h:'Krótka ścieżka decyzyjna', b2_p:'Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.',
+        b3_h:'Zgodność UE', b3_p:'EORI, VAT, dokumenty pochodzenia i zgodność z wymaganiami rynku.',
+        b4_h:'Bez "sztywnego" asortymentu', b4_p:'Każde zamówienie traktujemy jako osobny projekt dopasowany do celu.',
+        b5_h:'Rzetelne lead time', b5_p:'Planowanie oparte o realne okna produkcyjne i logistyczne.',
+        b6_h:'Skalowanie wolumenów', b6_p:'Od pilotażu do stałej współpracy — z zachowaniem jakości i kosztów.',
+        flow_h:'Jak to działa', flow_p:'Sześć kroków od briefu do dostawy. Prosto i bez zaskoczeń.',
+        s1_h:'Brief', s1_p:'Zakres, KPI, wolumeny, terminy, budżet.',
+        s2_h:'Propozycja', s2_p:'Opcje i warunki w zwięzłej ofercie.',
+        s3_h:'Umowa', s3_p:'NDA/kontrakt, płatności i plan.',
+        s4_h:'Produkcja/QC', s4_p:'Kontrola jakości i raporty.',
+        s5_h:'Wysyłka', s5_p:'Transport i śledzenie.',
+        s6_h:'Rozliczenie', s6_p:'Dokumenty i wnioski na przyszłość.',
+        contact_h:'Porozmawiajmy', contact_p:'Wyślij zapytanie. Odpowiemy z propozycją i terminem.',
+        f_name_l:'Imię i nazwisko', f_name_p:'Jan Kowalski', f_company_l:'Firma', f_company_p:'Nazwa firmy', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Telefon (opcjonalnie)', f_phone_p:'+372', f_msg_l:'Krótko o zapytaniu', f_msg_p:'Wolumen, terminy, budżet — co istotne', f_send:'Wyślij',
+        contact_card_h:'Co dostaniesz w odpowiedzi', contact_card_1:'Krótki follow‑up i ewentualne doprecyzowania.', contact_card_2:'Wstępny harmonogram i budżet.', contact_card_3:'Lista dokumentów i formalności.', contact_card_note:'Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.',
+        company_h:'Dane rejestrowe', company_legal_h:'Informacje prawne', company_legal_p:'Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.', reg_no:'Registration №'
+      },
+      $1, sector_a_h:'Materials & roofing', sector_b_h:'Sanitary & machinery', sector_c_h:'Chemicals & food', sector_d_h:'Financial & transport logistics & customs',
+        why_h:'Why SCANDIFLOW', why_p:'Built for procurement and operations — concise, predictable, and practical.',
+        b1_h:'Full transparency', b1_p:'Before kickoff: terms, risks, milestones and responsibilities.',
+        b2_h:'Short decision path', b2_p:'Single project owner, fast updates, minimal bureaucracy.',
+        b3_h:'EU compliance', b3_p:'EORI, VAT, origin and market requirements.',
+        b4_h:'No fixed assortment', b4_p:'Every order is a tailored project.',
+        b5_h:'Honest lead times', b5_p:'Planning by real production and logistics windows.',
+        b6_h:'Scalable volumes', b6_p:'From pilot to steady cooperation.',
+        flow_h:'How it works', flow_p:'Six steps from brief to delivery.',
+        s1_h:'Brief', s1_p:'Scope, KPIs, volumes, timing, budget.',
+        s2_h:'Proposal', s2_p:'Options and terms in a concise offer.',
+        s3_h:'Agreement', s3_p:'NDA/contract, payments and plan.',
+        s4_h:'Production/QC', s4_p:'Quality control and reports.',
+        s5_h:'Shipment', s5_p:'Transport and tracking.',
+        s6_h:'Close‑out', s6_p:'Documents and lessons for next run.',
+        contact_h:'Let’s talk', contact_p:'Send your request — we will reply with a proposal and timeline.',
+        f_name_l:'Full name', f_name_p:'John Doe', f_company_l:'Company', f_company_p:'Company name', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Phone (optional)', f_phone_p:'+372', f_msg_l:'Your request in brief', f_msg_p:'Volumes, timing, budget — key points', f_send:'Send',
+        contact_card_h:'What you will get', contact_card_1:'A short follow‑up and clarifications if needed.', contact_card_2:'Draft schedule and budget.', contact_card_3:'List of documents and formalities.', contact_card_note:'The form submits directly — no mail client needed.',
+        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №'
+      },
+      $1, sector_a_h:'Baustoffe & Dachdeckung', sector_b_h:'Sanitär & Maschinen', sector_c_h:'Chemie & Lebensmittel', sector_d_h:'Finanz‑ & Transportlogistik & Zoll',
+        why_h:'Warum SCANDIFLOW', why_p:'Ausgelegt für Einkauf und Operations — klar, planbar, pragmatisch.',
+        b1_h:'Volle Transparenz', b1_p:'Vor dem Start: Bedingungen, Risiken, Meilensteine und Verantwortlichkeiten.',
+        b2_h:'Kurze Entscheidungswege', b2_p:'Ein Projektverantwortlicher, schnelle Updates, minimale Bürokratie.',
+        b3_h:'EU‑Konformität', b3_p:'EORI, VAT, Ursprung und Marktanforderungen.',
+        b4_h:'Kein fixes Sortiment', b4_p:'Jeder Auftrag als maßgeschneidertes Projekt.',
+        b5_h:'Ehrliche Lead Times', b5_p:'Planung nach realen Produktions‑ und Logistikfenstern.',
+        b6_h:'Skalierbare Volumen', b6_p:'Vom Piloten zur Regelbelieferung.',
+        flow_h:'So läuft es', flow_p:'Sechs Schritte vom Brief bis zur Lieferung.',
+        s1_h:'Brief', s1_p:'Scope, KPIs, Volumen, Timing, Budget.',
+        s2_h:'Angebot', s2_p:'Optionen und Konditionen in einem kompakten Angebot.',
+        s3_h:'Vertrag', s3_p:'NDA/Vertrag, Zahlungen und Plan.',
+        s4_h:'Produktion/QC', s4_p:'Qualitätskontrolle und Berichte.',
+        s5_h:'Versand', s5_p:'Transport und Tracking.',
+        s6_h:'Abschluss', s6_p:'Dokumente und Learnings für den nächsten Lauf.',
+        contact_h:'Sprechen wir', contact_p:'Senden Sie Ihre Anfrage — wir antworten mit Vorschlag und Zeitplan.',
+        f_name_l:'Vollständiger Name', f_name_p:'Max Mustermann', f_company_l:'Firma', f_company_p:'Firmenname', f_email_l:'E‑Mail', f_email_p:'name@company.com', f_phone_l:'Telefon (optional)', f_phone_p:'+372', f_msg_l:'Ihre Anfrage in Kürze', f_msg_p:'Volumen, Timing, Budget — Wichtiges', f_send:'Senden',
+        contact_card_h:'Was Sie erhalten', contact_card_1:'Kurzes Follow‑up und ggf. Rückfragen.', contact_card_2:'Vorläufiger Zeitplan und Budget.', contact_card_3:'Liste der Dokumente und Formalitäten.', contact_card_note:'Das Formular wird direkt übermittelt — kein Mail‑Client nötig.',
+        company_h:'Firmendaten', company_legal_h:'Rechtliche Hinweise', company_legal_p:'Handelsregisterauszüge und Zertifikate stellen wir auf Anfrage bereit.', reg_no:'Registrierungsnr.'
+      },
+      $1, sector_a_h:'Matériaux & couverture', sector_b_h:'Sanitaire & machines', sector_c_h:'Entretien & alimentaires', sector_d_h:'Logistique financière et de transport & douane',
+        why_h:'Pourquoi SCANDIFLOW', why_p:'Conçu pour les achats et les opérations — clair, prévisible, concret.',
+        b1_h:'Transparence totale', b1_p:'Avant le démarrage : conditions, risques, jalons et responsabilités.',
+        b2_h:'Circuit décisionnel court', b2_p:'Un chef de projet unique, mises à jour rapides, bureaucratie minimale.',
+        b3_h:'Conformité UE', b3_p:'EORI, TVA, origine et exigences du marché.',
+        b4_h:'Pas d’assortiment figé', b4_p:'Chaque commande est un projet sur mesure.',
+        b5_h:'Délais honnêtes', b5_p:'Planification selon des fenêtres réelles de production et de logistique.',
+        b6_h:'Volumes évolutifs', b6_p:'Du pilote à la collaboration régulière.',
+        flow_h:'Comment ça marche', flow_p:'Six étapes du brief à la livraison.',
+        s1_h:'Brief', s1_p:'Périmètre, KPI, volumes, calendrier, budget.',
+        s2_h:'Proposition', s2_p:'Options et conditions dans une offre concise.',
+        s3_h:'Accord', s3_p:'NDA/contrat, paiements et plan.',
+        s4_h:'Production/QC', s4_p:'Contrôle qualité et rapports.',
+        s5_h:'Expédition', s5_p:'Transport et suivi.',
+        s6_h:'Clôture', s6_p:'Documents et enseignements pour la suite.',
+        contact_h:'Parlons‑en', contact_p:'Envoyez votre demande — nous répondrons avec une proposition et un délai.',
+        f_name_l:'Nom complet', f_name_p:'Jean Dupont', f_company_l:'Entreprise', f_company_p:'Nom de l’entreprise', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Téléphone (optionnel)', f_phone_p:'+372', f_msg_l:'Votre demande en bref', f_msg_p:'Volumes, délais, budget — points clés', f_send:'Envoyer',
+        contact_card_h:'Ce que vous recevrez', contact_card_1:'Court suivi et éventuelles précisions.', contact_card_2:'Calendrier et budget préliminaires.', contact_card_3:'Liste des documents et formalités.', contact_card_note:'Le formulaire est envoyé directement — pas de client mail nécessaire.',
+        company_h:'Données légales', company_legal_h:'Informations juridiques', company_legal_p:'Extraits et certificats fournis sur demande pendant la collaboration.', reg_no:'N° d’enregistrement'
+      },
+      $1, sector_a_h:'Materiales y cubiertas', sector_b_h:'Sanitario y maquinaria', sector_c_h:'Limpieza y alimentos', sector_d_h:'Logística financiera y de transporte y aduanas',
+        why_h:'Por qué SCANDIFLOW', why_p:'Pensado para compras y operaciones — claro, previsible y práctico.',
+        b1_h:'Transparencia total', b1_p:'Antes de empezar: condiciones, riesgos, hitos y responsabilidades.',
+        b2_h:'Vía de decisión corta', b2_p:'Un único responsable del proyecto, actualizaciones rápidas y mínima burocracia.',
+        b3_h:'Cumplimiento UE', b3_p:'EORI, IVA, origen y requisitos del mercado.',
+        b4_h:'Sin surtido fijo', b4_p:'Cada pedido es un proyecto a medida.',
+        b5_h:'Plazos honestos', b5_p:'Planificación según ventanas reales de producción y logística.',
+        b6_h:'Volúmenes escalables', b6_p:'Del piloto a la colaboración continua.',
+        flow_h:'Cómo funciona', flow_p:'Seis pasos del brief a la entrega.',
+        s1_h:'Brief', s1_p:'Alcance, KPI, volúmenes, calendario, presupuesto.',
+        s2_h:'Propuesta', s2_p:'Opciones y condiciones en una oferta concisa.',
+        s3_h:'Acuerdo', s3_p:'NDA/contrato, pagos y plan.',
+        s4_h:'Producción/QC', s4_p:'Control de calidad y reportes.',
+        s5_h:'Envío', s5_p:'Transporte y seguimiento.',
+        s6_h:'Cierre', s6_p:'Documentos y aprendizajes para la siguiente iteración.',
+        contact_h:'Hablemos', contact_p:'Envíanos tu solicitud — responderemos con propuesta y plazos.',
+        f_name_l:'Nombre completo', f_name_p:'Juan Pérez', f_company_l:'Empresa', f_company_p:'Nombre de la empresa', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Teléfono (opcional)', f_phone_p:'+372', f_msg_l:'Tu solicitud en breve', f_msg_p:'Volúmenes, plazos, presupuesto — puntos clave', f_send:'Enviar',
+        contact_card_h:'Qué recibirás', contact_card_1:'Breve seguimiento y aclaraciones si hace falta.', contact_card_2:'Cronograma y presupuesto preliminares.', contact_card_3:'Lista de documentos y formalidades.', contact_card_note:'El formulario se envía directamente — sin cliente de correo.',
+        company_h:'Datos de la empresa', company_legal_h:'Información legal', company_legal_p:'Extractos y certificados bajo solicitud durante la colaboración.', reg_no:'N.º de registro'
+      }
     };
 
     function applyLang(lang){
       const dict = i18n[lang] || i18n.pl;
       document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(dict[key]) el.innerHTML = dict[key];
+        const k = el.getAttribute('data-i18n');
+        const fb = i18n.en || {};
+        const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
+        const val = hasKey ? dict[k] : fb[k];
+        if(val !== undefined) el.innerHTML = val;
       });
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
-        const key = el.getAttribute('data-i18n-placeholder');
-        if(dict[key]) el.setAttribute('placeholder', dict[key]);
+        const k = el.getAttribute('data-i18n-placeholder');
+        const fb = i18n.en || {};
+        const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
+        const val = hasKey ? dict[k] : fb[k];
+        if(val !== undefined) el.setAttribute('placeholder', val);
       });
-      document.querySelectorAll('.lang button').forEach(b=>{
-        b.classList.toggle('active', b.dataset.lang === lang);
-      });
+      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       localStorage.setItem('lang', lang);
+      // sync Formspree hidden fields with current language
+      const subj = {
+        pl: 'SCANDIFLOW: nowe zapytanie',
+        en: 'SCANDIFLOW: new inquiry',
+        de: 'SCANDIFLOW: neue Anfrage',
+        es: 'SCANDIFLOW: nueva solicitud'
+      }[lang] || 'SCANDIFLOW: inquiry';
+      const langCode = lang;
+      const subjInput = document.getElementById('fs_subject');
+      const langInput = document.getElementById('fs_lang');
+      if (subjInput) subjInput.value = subj;
+      if (langInput) langInput.value = langCode;
+      const titles = {
+        pl:'SCANDIFLOW — hurt bez komplikacji',
+        en:'SCANDIFLOW — wholesale, uncomplicated',
+        de:'SCANDIFLOW — Großhandel, unkompliziert',
+        es:'SCANDIFLOW — mayorista sin complicaciones'
+      };
+      document.title = titles[lang] || titles.en;
     }
 
+    // Language switch handlers
     document.addEventListener('DOMContentLoaded', ()=>{
-      const allowed = ['pl','en','de','es'];
-      let current = localStorage.getItem('lang') || 'pl';
-      if(!allowed.includes(current)) current = 'pl';
-      applyLang(current);
+      const allowed=['pl','en','de','es'];
+      let start = localStorage.getItem('lang') || 'pl';
+      if(!allowed.includes(start)) start='pl';
+      applyLang(start);
       document.querySelectorAll('.lang button').forEach(btn=>{
         btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
       });
     });
 
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- SMOKE TESTS (dev aid; harmless in production) ---
+    (function i18nSmokeTest(){
+      const langs=['pl','en','de','es'];
+      const keys=['hero_title','what_h','contact_h'];
+      let ok = true;
+      langs.forEach(l=>{ if(!i18n[l]) ok=false; else keys.forEach(k=>{ if(!i18n[l][k]) ok=false; }); });
+      if(!ok) console.warn('[i18n] smoke test: missing keys detected');
+    })();
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SCANDIFLOW OÜ",
+    "email": "scandiflow.est@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Narva mnt. 7",
+      "addressLocality": "Tallinn",
+      "postalCode": "10117",
+      "addressCountry": "EE"
+    },
+    "identifier": [
+      {"@type": "PropertyValue", "name": "Registration №", "value": "17289884"},
+      {"@type": "PropertyValue", "name": "VAT", "value": "EE102890383"},
+      {"@type": "PropertyValue", "name": "EORI", "value": "EE17289884"}
+    ]
+  }
   </script>
 </body>
 </html>
