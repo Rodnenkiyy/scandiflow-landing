@@ -292,178 +292,344 @@
     </div>
   </footer>
 
-  <script>
-    const EMAIL_TO = "scandiflow.est@gmail.com";
-    const DEFAULT_LANG = localStorage.getItem('lang') || 'pl';
+<script>
+  const EMAIL_TO = "scandiflow.est@gmail.com";
+  const DEFAULT_LANG = localStorage.getItem('lang') || 'pl';
 
-    /* ======================
-       i18n DICTIONARY (5 langs)
-       ====================== */
-    const i18n = {
-      $1, sector_a_h:'Materiały i pokrycia dachowe', sector_b_h:'Sanitarne i maszyny', sector_c_h:'Chemia i żywność', sector_d_h:'Logistyka finansowa i transportowa oraz odprawy',
-        why_h:'Dlaczego SCANDIFLOW', why_p:'Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.',
-        b1_h:'Pełna transparentność', b1_p:'Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.',
-        b2_h:'Krótka ścieżka decyzyjna', b2_p:'Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.',
-        b3_h:'Zgodność UE', b3_p:'EORI, VAT, dokumenty pochodzenia i zgodność z wymaganiami rynku.',
-        b4_h:'Bez "sztywnego" asortymentu', b4_p:'Każde zamówienie traktujemy jako osobny projekt dopasowany do celu.',
-        b5_h:'Rzetelne lead time', b5_p:'Planowanie oparte o realne okna produkcyjne i logistyczne.',
-        b6_h:'Skalowanie wolumenów', b6_p:'Od pilotażu do stałej współpracy — z zachowaniem jakości i kosztów.',
-        flow_h:'Jak to działa', flow_p:'Sześć kroków od briefu do dostawy. Prosto i bez zaskoczeń.',
-        s1_h:'Brief', s1_p:'Zakres, KPI, wolumeny, terminy, budżet.',
-        s2_h:'Propozycja', s2_p:'Opcje i warunki w zwięzłej ofercie.',
-        s3_h:'Umowa', s3_p:'NDA/kontrakt, płatności i plan.',
-        s4_h:'Produkcja/QC', s4_p:'Kontrola jakości i raporty.',
-        s5_h:'Wysyłka', s5_p:'Transport i śledzenie.',
-        s6_h:'Rozliczenie', s6_p:'Dokumenty i wnioski na przyszłość.',
-        contact_h:'Porozmawiajmy', contact_p:'Wyślij zapytanie. Odpowiemy z propozycją i terminem.',
-        f_name_l:'Imię i nazwisko', f_name_p:'Jan Kowalski', f_company_l:'Firma', f_company_p:'Nazwa firmy', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Telefon (opcjonalnie)', f_phone_p:'+372', f_msg_l:'Krótko o zapytaniu', f_msg_p:'Wolumen, terminy, budżet — co istotne', f_send:'Wyślij',
-        contact_card_h:'Co dostaniesz w odpowiedzi', contact_card_1:'Krótki follow‑up i ewentualne doprecyzowania.', contact_card_2:'Wstępny harmonogram i budżet.', contact_card_3:'Lista dokumentów i formalności.', contact_card_note:'Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.',
-        company_h:'Dane rejestrowe', company_legal_h:'Informacje prawne', company_legal_p:'Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.', reg_no:'Registration №'
-      },
-      $1, sector_a_h:'Materials & roofing', sector_b_h:'Sanitary & machinery', sector_c_h:'Chemicals & food', sector_d_h:'Financial & transport logistics & customs',
-        why_h:'Why SCANDIFLOW', why_p:'Built for procurement and operations — concise, predictable, and practical.',
-        b1_h:'Full transparency', b1_p:'Before kickoff: terms, risks, milestones and responsibilities.',
-        b2_h:'Short decision path', b2_p:'Single project owner, fast updates, minimal bureaucracy.',
-        b3_h:'EU compliance', b3_p:'EORI, VAT, origin and market requirements.',
-        b4_h:'No fixed assortment', b4_p:'Every order is a tailored project.',
-        b5_h:'Honest lead times', b5_p:'Planning by real production and logistics windows.',
-        b6_h:'Scalable volumes', b6_p:'From pilot to steady cooperation.',
-        flow_h:'How it works', flow_p:'Six steps from brief to delivery.',
-        s1_h:'Brief', s1_p:'Scope, KPIs, volumes, timing, budget.',
-        s2_h:'Proposal', s2_p:'Options and terms in a concise offer.',
-        s3_h:'Agreement', s3_p:'NDA/contract, payments and plan.',
-        s4_h:'Production/QC', s4_p:'Quality control and reports.',
-        s5_h:'Shipment', s5_p:'Transport and tracking.',
-        s6_h:'Close‑out', s6_p:'Documents and lessons for next run.',
-        contact_h:'Let’s talk', contact_p:'Send your request — we will reply with a proposal and timeline.',
-        f_name_l:'Full name', f_name_p:'John Doe', f_company_l:'Company', f_company_p:'Company name', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Phone (optional)', f_phone_p:'+372', f_msg_l:'Your request in brief', f_msg_p:'Volumes, timing, budget — key points', f_send:'Send',
-        contact_card_h:'What you will get', contact_card_1:'A short follow‑up and clarifications if needed.', contact_card_2:'Draft schedule and budget.', contact_card_3:'List of documents and formalities.', contact_card_note:'The form submits directly — no mail client needed.',
-        company_h:'Company data', company_legal_h:'Legal info', company_legal_p:'Registry extracts and certificates are shared on request during cooperation.', reg_no:'Registration №'
-      },
-      $1, sector_a_h:'Baustoffe & Dachdeckung', sector_b_h:'Sanitär & Maschinen', sector_c_h:'Chemie & Lebensmittel', sector_d_h:'Finanz‑ & Transportlogistik & Zoll',
-        why_h:'Warum SCANDIFLOW', why_p:'Ausgelegt für Einkauf und Operations — klar, planbar, pragmatisch.',
-        b1_h:'Volle Transparenz', b1_p:'Vor dem Start: Bedingungen, Risiken, Meilensteine und Verantwortlichkeiten.',
-        b2_h:'Kurze Entscheidungswege', b2_p:'Ein Projektverantwortlicher, schnelle Updates, minimale Bürokratie.',
-        b3_h:'EU‑Konformität', b3_p:'EORI, VAT, Ursprung und Marktanforderungen.',
-        b4_h:'Kein fixes Sortiment', b4_p:'Jeder Auftrag als maßgeschneidertes Projekt.',
-        b5_h:'Ehrliche Lead Times', b5_p:'Planung nach realen Produktions‑ und Logistikfenstern.',
-        b6_h:'Skalierbare Volumen', b6_p:'Vom Piloten zur Regelbelieferung.',
-        flow_h:'So läuft es', flow_p:'Sechs Schritte vom Brief bis zur Lieferung.',
-        s1_h:'Brief', s1_p:'Scope, KPIs, Volumen, Timing, Budget.',
-        s2_h:'Angebot', s2_p:'Optionen und Konditionen in einem kompakten Angebot.',
-        s3_h:'Vertrag', s3_p:'NDA/Vertrag, Zahlungen und Plan.',
-        s4_h:'Produktion/QC', s4_p:'Qualitätskontrolle und Berichte.',
-        s5_h:'Versand', s5_p:'Transport und Tracking.',
-        s6_h:'Abschluss', s6_p:'Dokumente und Learnings für den nächsten Lauf.',
-        contact_h:'Sprechen wir', contact_p:'Senden Sie Ihre Anfrage — wir antworten mit Vorschlag und Zeitplan.',
-        f_name_l:'Vollständiger Name', f_name_p:'Max Mustermann', f_company_l:'Firma', f_company_p:'Firmenname', f_email_l:'E‑Mail', f_email_p:'name@company.com', f_phone_l:'Telefon (optional)', f_phone_p:'+372', f_msg_l:'Ihre Anfrage in Kürze', f_msg_p:'Volumen, Timing, Budget — Wichtiges', f_send:'Senden',
-        contact_card_h:'Was Sie erhalten', contact_card_1:'Kurzes Follow‑up und ggf. Rückfragen.', contact_card_2:'Vorläufiger Zeitplan und Budget.', contact_card_3:'Liste der Dokumente und Formalitäten.', contact_card_note:'Das Formular wird direkt übermittelt — kein Mail‑Client nötig.',
-        company_h:'Firmendaten', company_legal_h:'Rechtliche Hinweise', company_legal_p:'Handelsregisterauszüge und Zertifikate stellen wir auf Anfrage bereit.', reg_no:'Registrierungsnr.'
-      },
-      $1, sector_a_h:'Matériaux & couverture', sector_b_h:'Sanitaire & machines', sector_c_h:'Entretien & alimentaires', sector_d_h:'Logistique financière et de transport & douane',
-        why_h:'Pourquoi SCANDIFLOW', why_p:'Conçu pour les achats et les opérations — clair, prévisible, concret.',
-        b1_h:'Transparence totale', b1_p:'Avant le démarrage : conditions, risques, jalons et responsabilités.',
-        b2_h:'Circuit décisionnel court', b2_p:'Un chef de projet unique, mises à jour rapides, bureaucratie minimale.',
-        b3_h:'Conformité UE', b3_p:'EORI, TVA, origine et exigences du marché.',
-        b4_h:'Pas d’assortiment figé', b4_p:'Chaque commande est un projet sur mesure.',
-        b5_h:'Délais honnêtes', b5_p:'Planification selon des fenêtres réelles de production et de logistique.',
-        b6_h:'Volumes évolutifs', b6_p:'Du pilote à la collaboration régulière.',
-        flow_h:'Comment ça marche', flow_p:'Six étapes du brief à la livraison.',
-        s1_h:'Brief', s1_p:'Périmètre, KPI, volumes, calendrier, budget.',
-        s2_h:'Proposition', s2_p:'Options et conditions dans une offre concise.',
-        s3_h:'Accord', s3_p:'NDA/contrat, paiements et plan.',
-        s4_h:'Production/QC', s4_p:'Contrôle qualité et rapports.',
-        s5_h:'Expédition', s5_p:'Transport et suivi.',
-        s6_h:'Clôture', s6_p:'Documents et enseignements pour la suite.',
-        contact_h:'Parlons‑en', contact_p:'Envoyez votre demande — nous répondrons avec une proposition et un délai.',
-        f_name_l:'Nom complet', f_name_p:'Jean Dupont', f_company_l:'Entreprise', f_company_p:'Nom de l’entreprise', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Téléphone (optionnel)', f_phone_p:'+372', f_msg_l:'Votre demande en bref', f_msg_p:'Volumes, délais, budget — points clés', f_send:'Envoyer',
-        contact_card_h:'Ce que vous recevrez', contact_card_1:'Court suivi et éventuelles précisions.', contact_card_2:'Calendrier et budget préliminaires.', contact_card_3:'Liste des documents et formalités.', contact_card_note:'Le formulaire est envoyé directement — pas de client mail nécessaire.',
-        company_h:'Données légales', company_legal_h:'Informations juridiques', company_legal_p:'Extraits et certificats fournis sur demande pendant la collaboration.', reg_no:'N° d’enregistrement'
-      },
-      $1, sector_a_h:'Materiales y cubiertas', sector_b_h:'Sanitario y maquinaria', sector_c_h:'Limpieza y alimentos', sector_d_h:'Logística financiera y de transporte y aduanas',
-        why_h:'Por qué SCANDIFLOW', why_p:'Pensado para compras y operaciones — claro, previsible y práctico.',
-        b1_h:'Transparencia total', b1_p:'Antes de empezar: condiciones, riesgos, hitos y responsabilidades.',
-        b2_h:'Vía de decisión corta', b2_p:'Un único responsable del proyecto, actualizaciones rápidas y mínima burocracia.',
-        b3_h:'Cumplimiento UE', b3_p:'EORI, IVA, origen y requisitos del mercado.',
-        b4_h:'Sin surtido fijo', b4_p:'Cada pedido es un proyecto a medida.',
-        b5_h:'Plazos honestos', b5_p:'Planificación según ventanas reales de producción y logística.',
-        b6_h:'Volúmenes escalables', b6_p:'Del piloto a la colaboración continua.',
-        flow_h:'Cómo funciona', flow_p:'Seis pasos del brief a la entrega.',
-        s1_h:'Brief', s1_p:'Alcance, KPI, volúmenes, calendario, presupuesto.',
-        s2_h:'Propuesta', s2_p:'Opciones y condiciones en una oferta concisa.',
-        s3_h:'Acuerdo', s3_p:'NDA/contrato, pagos y plan.',
-        s4_h:'Producción/QC', s4_p:'Control de calidad y reportes.',
-        s5_h:'Envío', s5_p:'Transporte y seguimiento.',
-        s6_h:'Cierre', s6_p:'Documentos y aprendizajes para la siguiente iteración.',
-        contact_h:'Hablemos', contact_p:'Envíanos tu solicitud — responderemos con propuesta y plazos.',
-        f_name_l:'Nombre completo', f_name_p:'Juan Pérez', f_company_l:'Empresa', f_company_p:'Nombre de la empresa', f_email_l:'E‑mail', f_email_p:'name@company.com', f_phone_l:'Teléfono (opcional)', f_phone_p:'+372', f_msg_l:'Tu solicitud en breve', f_msg_p:'Volúmenes, plazos, presupuesto — puntos clave', f_send:'Enviar',
-        contact_card_h:'Qué recibirás', contact_card_1:'Breve seguimiento y aclaraciones si hace falta.', contact_card_2:'Cronograma y presupuesto preliminares.', contact_card_3:'Lista de documentos y formalidades.', contact_card_note:'El formulario se envía directamente — sin cliente de correo.',
-        company_h:'Datos de la empresa', company_legal_h:'Información legal', company_legal_p:'Extractos y certificados bajo solicitud durante la colaboración.', reg_no:'N.º de registro'
-      }
-    };
+  /* ======================
+     i18n DICTIONARY (4 langs)
+     ====================== */
+  const i18n = {
+    pl: {
+      /* nav */
+      nav_why:'Dlaczego my', nav_flow:'Przebieg', nav_contact:'Kontakt', nav_company:'Dane',
+      /* hero */
+      hero_title:'SCANDIFLOW — hurt bez komplikacji.',
+      hero_sub:'Dostarczamy rozwiązania zakupowe dla firm: wyszukujemy dostawców, konsolidujemy zamówienia, nadzorujemy jakość i dowozimy towar do wskazanego miejsca — z kompletem dokumentów.',
+      cta_quote:'Poproś o wycenę', cta_learn:'Zobacz przewagi',
+      /* kpi */
+      kpi_1_h:'Brief-driven', kpi_1_p:'Oferta skrojona pod cel i wolumen.',
+      kpi_2_h:'Przewidywalne terminy', kpi_2_p:'Realne lead time i komunikacja na bieżąco.',
+      kpi_3_h:'Zgodność i dokumenty', kpi_3_p:'VAT/EORI, certyfikaty i protokoły QC.',
+      /* what */
+      what_h:'Czym się zajmujemy',
+      what_p:'Nie sprzedajemy katalogu. Działamy na podstawie konkretnego zapytania biznesowego i dostarczamy rozwiązanie end-to-end.',
+      w1_h:'Sourcing i negocjacje',
+      w1_p:'Wyszukujemy odpowiednich producentów i ustalamy warunki w oparciu o cele kosztowe i terminy.',
+      w2_h:'Kontrola i konsolidacja',
+      w2_p:'Nadzór nad jakością, zdjęcia/wideo, łączenie dostaw i przygotowanie dokumentacji.',
+      w3_h:'Logistyka finansowa i transportowa oraz odprawy',
+      w3_p:'Transport drogowy/lotniczy/morski, EORI, śledzenie przesyłek do odbioru.',
+      sector_a_h:'Materiały i pokrycia dachowe',
+      sector_b_h:'Sanitarne i maszyny',
+      sector_c_h:'Chemia i żywność',
+      sector_d_h:'Logistyka finansowa i transportowa oraz odprawy',
+      sector_1:'Materiały budowlane',
+      sector_2:'Pokrycia dachowe',
+      sector_3:'Instalacje i armatura sanitarna',
+      sector_4:'Sprzęt budowlany i drogowy',
+      sector_5:'Chemia gospodarcza',
+      sector_6:'Artykuły spożywcze',
+      sector_7:'Oraz inne towary hurtowe w regionie Bałtyckim i UE.',
+      sectors_extra_h:'Logistyka',
+      sectors_extra1:'Logistyka finansowa i transportowa na całym świecie.',
+      sectors_extra2:'Organizacja logistyki pod klucz poza UE.',
+      /* why */
+      why_h:'Dlaczego SCANDIFLOW',
+      why_p:'Współpraca zaprojektowana dla działów zakupów i operacji — jasno, przewidywalnie i bez nadmiaru komunikatów.',
+      b1_h:'Pełna transparentność', b1_p:'Zanim ruszymy: warunki, ryzyka, kamienie milowe i odpowiedzialności po obu stronach.',
+      b2_h:'Krótka ścieżka decyzyjna', b2_p:'Jeden opiekun projektu, szybkie aktualizacje, minimum formalności.',
+      b3_h:'Zgodność UE', b3_p:'EORI, VAT, dokumenty pochodzenia i zgodność z wymaganiami rynku.',
+      b4_h:'Bez "sztywnego" asortymentu', b4_p:'Każde zamówienie traktujemy jako osobny projekt dopasowany do celu.',
+      b5_h:'Rzetelne lead time', b5_p:'Planowanie oparte o realne okna produkcyjne i logistyczne.',
+      b6_h:'Skalowanie wolumenów', b6_p:'Od pilotażu do stałej współpracy — z zachowaniem jakości i kosztów.',
+      /* flow */
+      flow_h:'Jak to działa',
+      flow_p:'Sześć kroków od briefu do dostawy. Prosto i bez zaskoczeń.',
+      s1_h:'Brief', s1_p:'Zakres, KPI, wolumeny, terminy, budżet.',
+      s2_h:'Propozycja', s2_p:'Opcje i warunki w zwięzłej ofercie.',
+      s3_h:'Umowa', s3_p:'NDA/kontrakt, płatności i plan.',
+      s4_h:'Produkcja/QC', s4_p:'Kontrola jakości i raporty.',
+      s5_h:'Wysyłka', s5_p:'Transport i śledzenie.',
+      s6_h:'Rozliczenie', s6_p:'Dokumenty i wnioski na przyszłość.',
+      /* contact */
+      contact_h:'Porozmawiajmy',
+      contact_p:'Wyślij zapytanie. Odpowiemy z propozycją i terminem.',
+      f_name_l:'Imię i nazwisko', f_name_p:'Jan Kowalski',
+      f_company_l:'Firma', f_company_p:'Nazwa firmy',
+      f_email_l:'E-mail', f_email_p:'name@company.com',
+      f_phone_l:'Telefon (opcjonalnie)', f_phone_p:'+372',
+      f_msg_l:'Krótko o zapytaniu', f_msg_p:'Wolumen, terminy, budżet — co istotne',
+      f_send:'Wyślij',
+      contact_card_h:'Co dostaniesz w odpowiedzi',
+      contact_card_1:'Krótki follow-up i ewentualne doprecyzowania.',
+      contact_card_2:'Wstępny harmonogram i budżet.',
+      contact_card_3:'Lista dokumentów i formalności.',
+      contact_card_note:'Formularz wysyła zgłoszenie bezpośrednio — bez klienta poczty.',
+      /* company */
+      company_h:'Dane rejestrowe',
+      company_legal_h:'Informacje prawne',
+      company_legal_p:'Wyciągi rejestrowe i certyfikaty udostępniamy na życzenie podczas współpracy.',
+      reg_no:'Registration №'
+    },
 
-    function applyLang(lang){
-      const dict = i18n[lang] || i18n.pl;
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k = el.getAttribute('data-i18n');
-        const fb = i18n.en || {};
-        const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
-        const val = hasKey ? dict[k] : fb[k];
-        if(val !== undefined) el.innerHTML = val;
-      });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
-        const k = el.getAttribute('data-i18n-placeholder');
-        const fb = i18n.en || {};
-        const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
-        const val = hasKey ? dict[k] : fb[k];
-        if(val !== undefined) el.setAttribute('placeholder', val);
-      });
-      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
-      localStorage.setItem('lang', lang);
-      // sync Formspree hidden fields with current language
-      const subj = {
-        pl: 'SCANDIFLOW: nowe zapytanie',
-        en: 'SCANDIFLOW: new inquiry',
-        de: 'SCANDIFLOW: neue Anfrage',
-        es: 'SCANDIFLOW: nueva solicitud'
-      }[lang] || 'SCANDIFLOW: inquiry';
-      const langCode = lang;
-      const subjInput = document.getElementById('fs_subject');
-      const langInput = document.getElementById('fs_lang');
-      if (subjInput) subjInput.value = subj;
-      if (langInput) langInput.value = langCode;
-      const titles = {
-        pl:'SCANDIFLOW — hurt bez komplikacji',
-        en:'SCANDIFLOW — wholesale, uncomplicated',
-        de:'SCANDIFLOW — Großhandel, unkompliziert',
-        es:'SCANDIFLOW — mayorista sin complicaciones'
-      };
-      document.title = titles[lang] || titles.en;
+    en: {
+      nav_why:'Why us', nav_flow:'Process', nav_contact:'Contact', nav_company:'Company',
+      hero_title:'SCANDIFLOW — wholesale, uncomplicated.',
+      hero_sub:'We deliver B2B purchasing solutions: source suppliers, consolidate orders, supervise quality and deliver to your location — with complete documentation.',
+      cta_quote:'Request a quote', cta_learn:'See advantages',
+      kpi_1_h:'Brief-driven', kpi_1_p:'Offer tailored to goal and volume.',
+      kpi_2_h:'Predictable timelines', kpi_2_p:'Realistic lead times and ongoing comms.',
+      kpi_3_h:'Compliance & docs', kpi_3_p:'VAT/EORI, certificates and QC protocols.',
+      what_h:'What we do',
+      what_p:'No static catalog. We work from a concrete business brief and deliver an end-to-end solution.',
+      w1_h:'Sourcing & negotiation',
+      w1_p:'Find the right manufacturers and terms against cost and timing targets.',
+      w2_h:'Control & consolidation',
+      w2_p:'QC oversight, photo/video, shipment merging and documentation.',
+      w3_h:'Financial & transport logistics & customs',
+      w3_p:'Road/air/sea transport, EORI, tracking to receipt.',
+      sector_a_h:'Materials & roofing',
+      sector_b_h:'Sanitary & machinery',
+      sector_c_h:'Chemicals & food',
+      sector_d_h:'Financial & transport logistics & customs',
+      sector_1:'Building materials',
+      sector_2:'Roofing',
+      sector_3:'Plumbing & sanitary ware',
+      sector_4:'Construction & road equipment',
+      sector_5:'Household chemicals',
+      sector_6:'Food products',
+      sector_7:'And other wholesale goods across the Baltics and EU.',
+      sectors_extra_h:'Logistics',
+      sectors_extra1:'Financial and transport logistics worldwide.',
+      sectors_extra2:'Turn-key logistics outside the EU.',
+      why_h:'Why SCANDIFLOW',
+      why_p:'Built for procurement and operations — concise, predictable, practical.',
+      b1_h:'Full transparency', b1_p:'Before kickoff: terms, risks, milestones and responsibilities.',
+      b2_h:'Short decision path', b2_p:'Single project owner, fast updates, minimal bureaucracy.',
+      b3_h:'EU compliance', b3_p:'EORI, VAT, origin and market requirements.',
+      b4_h:'No fixed assortment', b4_p:'Every order is a tailored project.',
+      b5_h:'Honest lead times', b5_p:'Planned by real production/logistics windows.',
+      b6_h:'Scalable volumes', b6_p:'From pilot to steady cooperation.',
+      flow_h:'How it works',
+      flow_p:'Six steps from brief to delivery.',
+      s1_h:'Brief', s1_p:'Scope, KPIs, volumes, timing, budget.',
+      s2_h:'Proposal', s2_p:'Options and terms in a concise offer.',
+      s3_h:'Agreement', s3_p:'NDA/contract, payments and plan.',
+      s4_h:'Production/QC', s4_p:'Quality control and reports.',
+      s5_h:'Shipment', s5_p:'Transport and tracking.',
+      s6_h:'Close-out', s6_p:'Documents and lessons for next run.',
+      contact_h:'Let’s talk',
+      contact_p:'Send your request — we will reply with a proposal and timeline.',
+      f_name_l:'Full name', f_name_p:'John Doe',
+      f_company_l:'Company', f_company_p:'Company name',
+      f_email_l:'E-mail', f_email_p:'name@company.com',
+      f_phone_l:'Phone (optional)', f_phone_p:'+372',
+      f_msg_l:'Your request in brief', f_msg_p:'Volumes, timing, budget — key points',
+      f_send:'Send',
+      contact_card_h:'What you will get',
+      contact_card_1:'A short follow-up and clarifications if needed.',
+      contact_card_2:'Draft schedule and budget.',
+      contact_card_3:'List of documents and formalities.',
+      contact_card_note:'The form submits directly — no mail client needed.',
+      company_h:'Company data',
+      company_legal_h:'Legal info',
+      company_legal_p:'Registry extracts and certificates are shared on request during cooperation.',
+      reg_no:'Registration №'
+    },
+
+    de: {
+      nav_why:'Warum wir', nav_flow:'Ablauf', nav_contact:'Kontakt', nav_company:'Firmendaten',
+      hero_title:'SCANDIFLOW — Großhandel, unkompliziert.',
+      hero_sub:'Wir liefern B2B-Beschaffungslösungen: Lieferanten finden, Bestellungen konsolidieren, Qualität überwachen und an Ihren Ort liefern — mit vollständiger Dokumentation.',
+      cta_quote:'Angebot anfordern', cta_learn:'Vorteile ansehen',
+      kpi_1_h:'Brief-getrieben', kpi_1_p:'Angebot auf Ziel und Volumen zugeschnitten.',
+      kpi_2_h:'Planbare Termine', kpi_2_p:'Realistische Lead Times und laufende Kommunikation.',
+      kpi_3_h:'Konformität & Unterlagen', kpi_3_p:'USt-ID/EORI, Zertifikate und QC-Protokolle.',
+      what_h:'Was wir tun',
+      what_p:'Kein statischer Katalog. Wir arbeiten auf Basis eines konkreten Business-Briefs und liefern End-to-End.',
+      w1_h:'Sourcing & Verhandlung',
+      w1_p:'Passende Hersteller und Konditionen nach Kosten- und Zeitvorgaben.',
+      w2_h:'Kontrolle & Konsolidierung',
+      w2_p:'QC-Überwachung, Foto/Video, Bündelung und Dokumentation.',
+      w3_h:'Finanz- & Transportlogistik & Zoll',
+      w3_p:'Straße/Luft/See, EORI, Tracking bis zur Übernahme.',
+      sector_a_h:'Baustoffe & Dachdeckung',
+      sector_b_h:'Sanitär & Maschinen',
+      sector_c_h:'Chemie & Lebensmittel',
+      sector_d_h:'Finanz- & Transportlogistik & Zoll',
+      sector_1:'Baumaterialien',
+      sector_2:'Dachdeckung',
+      sector_3:'Sanitär/Installation',
+      sector_4:'Bau- & Straßenmaschinen',
+      sector_5:'Haushaltschemie',
+      sector_6:'Lebensmittel',
+      sector_7:'Sowie weitere Großhandelswaren im Baltikum und der EU.',
+      sectors_extra_h:'Logistik',
+      sectors_extra1:'Finanz- und Transportlogistik weltweit.',
+      sectors_extra2:'Schlüsselfertige Logistik außerhalb der EU.',
+      why_h:'Warum SCANDIFLOW',
+      why_p:'Für Einkauf & Operations — klar, planbar, pragmatisch.',
+      b1_h:'Volle Transparenz', b1_p:'Vor dem Start: Bedingungen, Risiken, Meilensteine, Verantwortlichkeiten.',
+      b2_h:'Kurze Entscheidungswege', b2_p:'Ein Projektverantwortlicher, schnelle Updates, minimale Bürokratie.',
+      b3_h:'EU-Konformität', b3_p:'EORI, USt-ID, Ursprung und Marktanforderungen.',
+      b4_h:'Kein fixes Sortiment', b4_p:'Jeder Auftrag als maßgeschneidertes Projekt.',
+      b5_h:'Ehrliche Lead Times', b5_p:'Planung nach realen Produktions-/Logistikfenstern.',
+      b6_h:'Skalierbare Volumen', b6_p:'Vom Piloten zur Regelbelieferung.',
+      flow_h:'So läuft es',
+      flow_p:'Sechs Schritte vom Brief bis zur Lieferung.',
+      s1_h:'Brief', s1_p:'Scope, KPIs, Volumen, Timing, Budget.',
+      s2_h:'Angebot', s2_p:'Optionen und Konditionen kompakt.',
+      s3_h:'Vertrag', s3_p:'NDA/Vertrag, Zahlungen, Plan.',
+      s4_h:'Produktion/QC', s4_p:'Qualitätskontrolle und Berichte.',
+      s5_h:'Versand', s5_p:'Transport und Tracking.',
+      s6_h:'Abschluss', s6_p:'Dokumente und Learnings.',
+      contact_h:'Sprechen wir',
+      contact_p:'Senden Sie Ihre Anfrage — wir antworten mit Vorschlag und Zeitplan.',
+      f_name_l:'Vollständiger Name', f_name_p:'Max Mustermann',
+      f_company_l:'Firma', f_company_p:'Firmenname',
+      f_email_l:'E-Mail', f_email_p:'name@company.com',
+      f_phone_l:'Telefon (optional)', f_phone_p:'+372',
+      f_msg_l:'Ihre Anfrage in Kürze', f_msg_p:'Volumen, Timing, Budget — Wichtiges',
+      f_send:'Senden',
+      contact_card_h:'Was Sie erhalten',
+      contact_card_1:'Kurzes Follow-up und ggf. Rückfragen.',
+      contact_card_2:'Vorläufiger Zeitplan und Budget.',
+      contact_card_3:'Liste der Dokumente und Formalitäten.',
+      contact_card_note:'Das Formular wird direkt übermittelt — kein Mail-Client nötig.',
+      company_h:'Firmendaten',
+      company_legal_h:'Rechtliche Hinweise',
+      company_legal_p:'Handelsregisterauszüge und Zertifikate stellen wir auf Anfrage bereit.',
+      reg_no:'Registrierungsnr.'
+    },
+
+    es: {
+      nav_why:'Por qué nosotros', nav_flow:'Proceso', nav_contact:'Contacto', nav_company:'Empresa',
+      hero_title:'SCANDIFLOW — mayorista sin complicaciones.',
+      hero_sub:'Entregamos soluciones de compra B2B: búsqueda de proveedores, consolidación de pedidos, control de calidad y entrega en tu ubicación — con documentación completa.',
+      cta_quote:'Pedir presupuesto', cta_learn:'Ver ventajas',
+      kpi_1_h:'Orientado al brief', kpi_1_p:'Oferta ajustada a objetivo y volumen.',
+      kpi_2_h:'Plazos previsibles', kpi_2_p:'Lead times reales y comunicación continua.',
+      kpi_3_h:'Conformidad y documentos', kpi_3_p:'IVA/EORI, certificados y protocolos de QC.',
+      what_h:'Qué hacemos',
+      what_p:'Sin catálogo estático. Trabajamos a partir de un brief concreto y entregamos una solución end-to-end.',
+      w1_h:'Sourcing y negociación',
+      w1_p:'Encontramos fabricantes idóneos y condiciones según coste y plazos.',
+      w2_h:'Control y consolidación',
+      w2_p:'Supervisión de calidad, foto/vídeo, unificación de envíos y documentación.',
+      w3_h:'Logística financiera y de transporte y aduanas',
+      w3_p:'Transporte por carretera/aire/mar, EORI, seguimiento hasta la recepción.',
+      sector_a_h:'Materiales y cubiertas',
+      sector_b_h:'Sanitario y maquinaria',
+      sector_c_h:'Químicos y alimentos',
+      sector_d_h:'Logística financiera y de transporte y aduanas',
+      sector_1:'Materiales de construcción',
+      sector_2:'Cubiertas',
+      sector_3:'Fontanería y sanitarios',
+      sector_4:'Equipos de construcción y viales',
+      sector_5:'Química del hogar',
+      sector_6:'Productos alimentarios',
+      sector_7:'Y otros bienes mayoristas en los países bálticos y la UE.',
+      sectors_extra_h:'Logística',
+      sectors_extra1:'Logística financiera y de transporte en todo el mundo.',
+      sectors_extra2:'Logística llave en mano fuera de la UE.',
+      why_h:'Por qué SCANDIFLOW',
+      why_p:'Pensado para compras y operaciones — claro, previsible y práctico.',
+      b1_h:'Transparencia total', b1_p:'Antes de empezar: condiciones, riesgos, hitos y responsabilidades.',
+      b2_h:'Vía de decisión corta', b2_p:'Un único responsable, actualizaciones rápidas y mínima burocracia.',
+      b3_h:'Cumplimiento UE', b3_p:'EORI, IVA, origen y requisitos del mercado.',
+      b4_h:'Sin surtido fijo', b4_p:'Cada pedido es un proyecto a medida.',
+      b5_h:'Plazos honestos', b5_p:'Planificación según ventanas reales.',
+      b6_h:'Volúmenes escalables', b6_p:'Del piloto a la colaboración continua.',
+      flow_h:'Cómo funciona',
+      flow_p:'Seis pasos del brief a la entrega.',
+      s1_h:'Brief', s1_p:'Alcance, KPI, volúmenes, calendario, presupuesto.',
+      s2_h:'Propuesta', s2_p:'Opciones y condiciones en una oferta concisa.',
+      s3_h:'Acuerdo', s3_p:'NDA/contrato, pagos y plan.',
+      s4_h:'Producción/QC', s4_p:'Control de calidad y reportes.',
+      s5_h:'Envío', s5_p:'Transporte y seguimiento.',
+      s6_h:'Cierre', s6_p:'Documentos y aprendizajes.',
+      contact_h:'Hablemos',
+      contact_p:'Envíanos tu solicitud — responderemos con propuesta y plazos.',
+      f_name_l:'Nombre completo', f_name_p:'Juan Pérez',
+      f_company_l:'Empresa', f_company_p:'Nombre de la empresa',
+      f_email_l:'E-mail', f_email_p:'name@company.com',
+      f_phone_l:'Teléfono (opcional)', f_phone_p:'+372',
+      f_msg_l:'Tu solicitud en breve', f_msg_p:'Volúmenes, plazos, presupuesto — puntos clave',
+      f_send:'Enviar',
+      contact_card_h:'Qué recibirás',
+      contact_card_1:'Breve seguimiento y aclaraciones si hace falta.',
+      contact_card_2:'Cronograma y presupuesto preliminares.',
+      contact_card_3:'Lista de documentos y formalidades.',
+      contact_card_note:'El formulario se envía directamente — sin cliente de correo.',
+      company_h:'Datos de la empresa',
+      company_legal_h:'Información legal',
+      company_legal_p:'Extractos y certificados bajo solicitud durante la colaboración.',
+      reg_no:'N.º de registro'
     }
+  };
 
-    // Language switch handlers
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const allowed=['pl','en','de','es'];
-      let start = localStorage.getItem('lang') || 'pl';
-      if(!allowed.includes(start)) start='pl';
-      applyLang(start);
-      document.querySelectorAll('.lang button').forEach(btn=>{
-        btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
-      });
+  function applyLang(lang){
+    const dict = i18n[lang] || i18n.pl;
+    // innerHTML targets
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const k = el.getAttribute('data-i18n');
+      const fb = i18n.en || {};
+      const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
+      const val = hasKey ? dict[k] : fb[k];
+      if (val !== undefined) el.innerHTML = val;
     });
+    // placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      const k = el.getAttribute('data-i18n-placeholder');
+      const fb = i18n.en || {};
+      const hasKey = Object.prototype.hasOwnProperty.call(dict, k);
+      const val = hasKey ? dict[k] : fb[k];
+      if (val !== undefined) el.setAttribute('placeholder', val);
+    });
+    // active button
+    document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    // persist
+    localStorage.setItem('lang', lang);
+    // sync hidden fields + title
+    const subj = {
+      pl: 'SCANDIFLOW: nowe zapytanie',
+      en: 'SCANDIFLOW: new inquiry',
+      de: 'SCANDIFLOW: neue Anfrage',
+      es: 'SCANDIFLOW: nueva solicitud'
+    }[lang] || 'SCANDIFLOW: inquiry';
+    const subjInput = document.getElementById('fs_subject');
+    const langInput = document.getElementById('fs_lang');
+    if (subjInput) subjInput.value = subj;
+    if (langInput) langInput.value = lang;
+    const titles = {
+      pl:'SCANDIFLOW — hurt bez komplikacji',
+      en:'SCANDIFLOW — wholesale, uncomplicated',
+      de:'SCANDIFLOW — Großhandel, unkompliziert',
+      es:'SCANDIFLOW — mayorista sin complicaciones'
+    };
+    document.title = titles[lang] || titles.en;
+  }
 
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // init
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const allowed=['pl','en','de','es'];
+    let start = localStorage.getItem('lang') || DEFAULT_LANG || 'pl';
+    if(!allowed.includes(start)) start='pl';
+    applyLang(start);
+    document.querySelectorAll('.lang button').forEach(btn=>{
+      btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
+    });
+    // simple sanity check
+    const must=['hero_title','what_h','contact_h','nav_why','nav_flow','nav_contact','nav_company'];
+    const d=i18n[start];
+    const missing = must.filter(k=>!(k in d));
+    if(missing.length) console.warn('[i18n] missing keys:', missing.join(', '));
+  });
 
-    // --- SMOKE TESTS (dev aid; harmless in production) ---
-    (function i18nSmokeTest(){
-      const langs=['pl','en','de','es'];
-      const keys=['hero_title','what_h','contact_h'];
-      let ok = true;
-      langs.forEach(l=>{ if(!i18n[l]) ok=false; else keys.forEach(k=>{ if(!i18n[l][k]) ok=false; }); });
-      if(!ok) console.warn('[i18n] smoke test: missing keys detected');
-    })();
-  </script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
